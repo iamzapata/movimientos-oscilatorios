@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "constants": ["constants"],
+      "controles": ["controles"],
+      "init": ["init"],
+      "components": ["components"]
+    }
+  }
+}
