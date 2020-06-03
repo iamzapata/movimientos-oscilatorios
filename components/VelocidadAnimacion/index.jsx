@@ -1,14 +1,14 @@
 import React from "react";
 
 const VelocidadAnimacion = ({ controlarSimulacion, velocidadAnimacion }) => (
-  <div className="columns VelocidadAnimacion">
-    <div className="column">
+  <div className="columns flex flex-col absolute left-0 right-0" style={{bottom: '5px'}}>
+    <div className="column flex justify-center pb-0">
       <span id="velocida_animacion" className="is-size-7 has-text-weight-semibold">
         1
       </span>
       <span className="is-size-7 has-text-weight-semibold">x</span>
     </div>
-    <div className="column">
+    <div className="column flex justify-center pt-0">
       <div className="control">
         <button name="mas_lento" type="button" className="button mx-5 is-small" onClick={controlarSimulacion}>
           <span className="icon" style={{ fontSize: "0.5rem" }}>

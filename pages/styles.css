@@ -28,8 +28,8 @@ body {
 }
 
 #ventanagrafica {
-  height: 300px;
-  width: 1000px;
+  height: 380px;
+  /* width: 1000px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,11 +47,14 @@ hr {
   height: 2px !important;
 }
 
-.section {
-  max-width: 1000px;
-  width: 1000px;
-  padding: 0;
+.FormulaMatematica * {
+  border-color: unset;
 }
+
+.katex-html {
+  display: flex;
+}  
+
 
 .Texto-Ayuda {
   z-index: 100;
@@ -64,21 +67,6 @@ hr {
   list-style: inherit;
   margin: initial;
   padding-left: 30px !important;
-}
-
-.VelocidadAnimacion {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.VelocidadAnimacion .column {
-  padding: 0;
-  display: flex;
-  justify-content: center;
 }
 
 /* Tooltip contenedor */

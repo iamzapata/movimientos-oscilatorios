@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Head from "next/head";
 import TextoAyuda from "components/MovimientoArmonicoSimple/TextoAyuda";
 import Formulas from "components/MovimientoArmonicoSimple/Formulas";
 import ValoresCalculados from "components/MovimientoArmonicoSimple/ValoresCalculados";
@@ -9,7 +10,7 @@ import { PI, masa, K } from "constants";
 
 // Este es un valor abritrario pra simular
 // que una oscilación con omega en 6.28 dura un segundo
-const VALOR_INCREMEMENTO = 0.023;
+const VALOR_INCREMEMENTO = 0.035;
 
 const AMPLITUD_MINIMA = -600;
 const AMPLITUD_MAXIMA = 600;
@@ -67,8 +68,8 @@ class MovimientoArmonicoSimple extends Component {
   establecerResolucionCanvas = (canvas) => {
     const dpr = window.devicePixelRatio;
 
-    canvas.width = 1000 * dpr;
-    canvas.height = 300 * dpr;
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = 400 * dpr;
 
     const { width, height } = canvas;
 
@@ -633,138 +634,146 @@ class MovimientoArmonicoSimple extends Component {
     const valorRadianes = this.obtenerValorFaseInicial("radianes").toFixed(2);
 
     return (
-      <div className="my-5">
-        <h4 className="title is-4 text-center">Movimiento Armónico Simple</h4>
-        <div id="ventanagrafica">
-          <canvas id="canvassecundario"></canvas>
-          <canvas id="canvasprincipal"></canvas>
-          <canvas id="canvasvectores"></canvas>
-          <TextoAyuda />
-          <VelocidadAnimacion controlarSimulacion={this.controlarSimulacion} velocidadAnimacion={velocidadAnimacion} />
-        </div>
-        <section className="section">
-          <div className="container is-fluid is-paddingless">
-            <Formulas />
-            <div className="columns">
-              <hr className="w-full" />
-            </div>
-            <ValoresCalculados valoresCalculados={this.state} />
-            <div className="box">
+      <>
+        <Head>
+          <title>M.A.S</title>
+        </Head>
+        <div className="my-5">
+          <h4 className="title is-4 text-center">Movimiento Armónico Simple</h4>
+          <div id="ventanagrafica">
+            <canvas id="canvassecundario"></canvas>
+            <canvas id="canvasprincipal"></canvas>
+            <canvas id="canvasvectores"></canvas>
+            <TextoAyuda />
+            <VelocidadAnimacion
+              controlarSimulacion={this.controlarSimulacion}
+              velocidadAnimacion={velocidadAnimacion}
+            />
+          </div>
+          <section className="section">
+            <div className="container is-fluid is-paddingless">
+              <Formulas />
               <div className="columns">
-                <div className="column">
-                  <div className="field is-vertical">
-                    <div className="field-label is-normal is-marginless text-center">
-                      <label className="label">Amplitud</label>
-                    </div>
-                    <div className="field-body w-100">
-                      <div className="field">
-                        <input
-                          className="input"
-                          type="number"
-                          name="amplitud_input"
-                          value={amplitud}
-                          placeholder="Amplitud"
-                          onChange={this.controlarSimulacion}
-                        />
+                <hr className="w-full" />
+              </div>
+              <ValoresCalculados valoresCalculados={this.state} />
+              <div className="box">
+                <div className="columns">
+                  <div className="column">
+                    <div className="field is-vertical">
+                      <div className="field-label is-normal is-marginless text-center">
+                        <label className="label">Amplitud</label>
                       </div>
-                    </div>
-                    <div className="field-body w-100">
-                      <div className="field">
-                        <input
-                          name="amplitud_range"
-                          placeholder="Desplazamiento Inicial"
-                          type="range"
-                          min={AMPLITUD_MINIMA}
-                          max={AMPLITUD_MAXIMA}
-                          value={amplitud}
-                          className="slider"
-                          onChange={this.controlarSimulacion}
-                        />
+                      <div className="field-body w-100">
+                        <div className="field">
+                          <input
+                            className="input"
+                            type="number"
+                            name="amplitud_input"
+                            value={amplitud}
+                            placeholder="Amplitud"
+                            onChange={this.controlarSimulacion}
+                          />
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="column">
-                  <div className="field is-vertical">
-                    <div className="field-label is-normal is-marginless text-center">
-                      <label className="label">Frequencia Angular</label>
-                    </div>
-                    <div className="field-body w-100">
-                      <div className="field">
-                        <input
-                          className="input"
-                          type="number"
-                          name="frecuencia_angular"
-                          placeholder="Frecuencia Angular"
-                          value={frecuenciaAngular}
-                          onChange={this.controlarSimulacion}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="column">
-                  <div className="field is-vertical">
-                    <div className="field-label is-normal is-marginless text-center">
-                      <label className="label">Fase Inicial</label>
-                    </div>
-                    <div className="field-body w-100">
-                      <div className="field flex">
-                        <input
-                          className="input"
-                          type="number"
-                          name="fase_inicial"
-                          placeholder="Fase Inicial"
-                          value={faseInicialInput}
-                          onChange={this.controlarSimulacion}
-                        />
-                        <div className="field flex flex-col items-start ml-3 relative" style={{ top: "-5px" }}>
-                          <label className="has-text-grey flex items-center" htmlFor="grados">
-                            <input
-                              id="grados"
-                              type="radio"
-                              name="unidades_fase_inicial"
-                              value="grados"
-                              checked={unidadesFaseInicial === "grados"}
-                              onChange={this.controlarSimulacion}
-                            />
-                            <span className="ml-1">°</span>
-                          </label>
-                          <label className="has-text-grey flex items-center" htmlFor="radianes">
-                            <input
-                              id="radianes"
-                              type="radio"
-                              name="unidades_fase_inicial"
-                              value="radianes"
-                              checked={unidadesFaseInicial === "radianes"}
-                              onChange={this.controlarSimulacion}
-                            />
-                            <span className="ml-1">rad</span>
-                          </label>
+                      <div className="field-body w-100">
+                        <div className="field">
+                          <input
+                            name="amplitud_range"
+                            placeholder="Desplazamiento Inicial"
+                            type="range"
+                            min={AMPLITUD_MINIMA}
+                            max={AMPLITUD_MAXIMA}
+                            value={amplitud}
+                            className="slider"
+                            onChange={this.controlarSimulacion}
+                          />
                         </div>
                       </div>
                     </div>
-                    <div className="flex items-center justify-center">
-                      <canvas id="canvasfaseinicial"></canvas>
-                      <div className="">
-                        <p>
-                          <span>{valorGrados}</span>
-                          <span className="has-text-grey"> °</span>
-                        </p>
-                        <p>
-                          <span>{valorRadianes}</span>
-                          <span className="has-text-grey"> rad</span>
-                        </p>
+                  </div>
+                  <div className="column">
+                    <div className="field is-vertical">
+                      <div className="field-label is-normal is-marginless text-center">
+                        <label className="label">Frequencia Angular</label>
+                      </div>
+                      <div className="field-body w-100">
+                        <div className="field">
+                          <input
+                            className="input"
+                            type="number"
+                            name="frecuencia_angular"
+                            placeholder="Frecuencia Angular"
+                            value={frecuenciaAngular}
+                            onChange={this.controlarSimulacion}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="column">
+                    <div className="field is-vertical">
+                      <div className="field-label is-normal is-marginless text-center">
+                        <label className="label">Fase Inicial</label>
+                      </div>
+                      <div className="field-body w-100">
+                        <div className="field flex">
+                          <input
+                            className="input"
+                            type="number"
+                            name="fase_inicial"
+                            placeholder="Fase Inicial"
+                            value={faseInicialInput}
+                            onChange={this.controlarSimulacion}
+                          />
+                          <div className="field flex flex-col items-start ml-3 relative" style={{ top: "-5px" }}>
+                            <label className="has-text-grey flex items-center" htmlFor="grados">
+                              <input
+                                id="grados"
+                                type="radio"
+                                name="unidades_fase_inicial"
+                                value="grados"
+                                checked={unidadesFaseInicial === "grados"}
+                                onChange={this.controlarSimulacion}
+                              />
+                              <span className="ml-1">°</span>
+                            </label>
+                            <label className="has-text-grey flex items-center" htmlFor="radianes">
+                              <input
+                                id="radianes"
+                                type="radio"
+                                name="unidades_fase_inicial"
+                                value="radianes"
+                                checked={unidadesFaseInicial === "radianes"}
+                                onChange={this.controlarSimulacion}
+                              />
+                              <span className="ml-1">rad</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-center">
+                        <canvas id="canvasfaseinicial"></canvas>
+                        <div className="">
+                          <p>
+                            <span>{valorGrados}</span>
+                            <span className="has-text-grey"> °</span>
+                          </p>
+                          <p>
+                            <span>{valorRadianes}</span>
+                            <span className="has-text-grey"> rad</span>
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <ControlesAnimacion controlarSimulacion={this.controlarSimulacion} />
               </div>
-              <ControlesAnimacion controlarSimulacion={this.controlarSimulacion} />
             </div>
-          </div>
-        </section>
-      </div>
+          </section>
+        </div>
+      </>
     );
   }
 }
