@@ -630,7 +630,7 @@ class MovimientoArmonicoSimple extends Component {
   };
 
   render() {
-    const { amplitud, frecuenciaAngular, faseInicialInput, unidadesFaseInicial, velocidadAnimacion } = this.state;
+    const { velocidadAnimacion } = this.state;
     const valorGrados = this.obtenerValorFaseInicial("grados").toFixed(0);
     const valorRadianes = this.obtenerValorFaseInicial("radianes").toFixed(2);
 
