@@ -467,8 +467,8 @@ class MovimientoArmonicoSimple extends Component {
   };
 
   dibujarVectorVelocidad = () => {
-    const { amplitud } = this.state;
-    const { width: anchoCanvas, contextVectores: context, dimensionBloque } = this;
+    const { amplitud, dimensionBloque } = this.state;
+    const { width: anchoCanvas, contextVectores: context } = this;
 
     if (amplitud === 0) return;
 
@@ -501,8 +501,8 @@ class MovimientoArmonicoSimple extends Component {
   };
 
   dibujarVectorAceleracion = () => {
-    const { amplitud } = this.state;
-    const { width: anchoCanvas, contextVectores: context, dimensionBloque } = this;
+    const { amplitud, dimensionBloque } = this.state;
+    const { width: anchoCanvas, contextVectores: context } = this;
 
     if (amplitud === 0) return;
 
@@ -536,8 +536,8 @@ class MovimientoArmonicoSimple extends Component {
   };
 
   dibujarVectorFuerza = () => {
-    const { amplitud } = this.state;
-    const { width: anchoCanvas, contextVectores: context, dimensionBloque } = this;
+    const { amplitud, dimensionBloque } = this.state;
+    const { width: anchoCanvas, contextVectores: context } = this;
 
     if (amplitud === 0) return;
 
