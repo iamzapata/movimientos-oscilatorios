@@ -17,7 +17,7 @@ const ValoresCalculados = ({
     energiaMecanica,
   },
 }) => {
-  const formatearADosDecimales = (numero) => numero.toFixed(2);
+  const formatearADosDecimales = (numero) => " " + numero.toFixed(2) + " ";
 
   return (
     <div className="columns">

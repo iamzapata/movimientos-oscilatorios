@@ -633,8 +633,8 @@ class MovimientoArmonicoSimple extends Component {
     const valorRadianes = this.obtenerValorFaseInicial("radianes").toFixed(2);
 
     return (
-      <div id="app">
-        <h4 className="title is-4">Movimiento Armónico Simple</h4>
+      <div className="my-5">
+        <h4 className="title is-4 text-center">Movimiento Armónico Simple</h4>
         <div id="ventanagrafica">
           <canvas id="canvassecundario"></canvas>
           <canvas id="canvasprincipal"></canvas>
@@ -646,7 +646,7 @@ class MovimientoArmonicoSimple extends Component {
           <div className="container is-fluid is-paddingless">
             <Formulas />
             <div className="columns">
-              <hr className="w-100" />
+              <hr className="w-full" />
             </div>
             <ValoresCalculados valoresCalculados={this.state} />
             <div className="box">

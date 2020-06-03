@@ -12,7 +12,7 @@ const VelocidadAnimacion = ({controlarSimulacion, velocidadAnimacion}) => (
       <span className="is-size-7 has-text-weight-semibold">x</span>
     </div>
     <div className="column">
-      <button name="mas_lento" type="button" className="button">
+      <button name="mas_lento" type="button" className="button" onClick={controlarSimulacion}>
         <span className="icon is-small">
           <i className="fa fa-fast-backward"></i>
         </span>
@@ -26,7 +26,7 @@ const VelocidadAnimacion = ({controlarSimulacion, velocidadAnimacion}) => (
         step="0.25"
         onChange={controlarSimulacion}
       />
-      <button name="mas_rapido" type="button" className="button">
+      <button name="mas_rapido" type="button" className="button" onClick={controlarSimulacion}>
         <span className="icon is-small">
           <i className="fa fa-fast-forward"></i>
         </span>
