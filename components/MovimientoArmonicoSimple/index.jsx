@@ -639,17 +639,22 @@ class MovimientoArmonicoSimple extends Component {
         <Head>
           <title>M.A.S</title>
         </Head>
+
         <div className="my-5" style={{ width: "1000px" }}>
+
           <h4 className="title is-4 text-center">Movimiento Armónico Simple</h4>
+
           <div id="ventanagrafica">
             <canvas id="canvassecundario"></canvas>
             <canvas id="canvasprincipal"></canvas>
             <canvas id="canvasvectores"></canvas>
+
             <VelocidadAnimacion
               controlarSimulacion={this.controlarSimulacion}
               velocidadAnimacion={velocidadAnimacion}
             />
           </div>
+
           <hr className="w-full" />
 
           <section className="section p-0">
@@ -670,7 +675,6 @@ class MovimientoArmonicoSimple extends Component {
               />
 
               <ControlesAnimacion estado={this.state} controlarSimulacion={this.controlarSimulacion} />
-              
             </div>
           </section>
         </div>
