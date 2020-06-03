@@ -1,22 +1,21 @@
 import React from "react";
 
-const VelocidadAnimacion = ({controlarSimulacion, velocidadAnimacion}) => (
+const VelocidadAnimacion = ({ controlarSimulacion, velocidadAnimacion }) => (
   <div className="columns VelocidadAnimacion">
     <div className="column">
-      <span
-        id="velocida_animacion"
-        className="is-size-7 has-text-weight-semibold"
-      >
+      <span id="velocida_animacion" className="is-size-7 has-text-weight-semibold">
         1
       </span>
       <span className="is-size-7 has-text-weight-semibold">x</span>
     </div>
     <div className="column">
-      <button name="mas_lento" type="button" className="button" onClick={controlarSimulacion}>
-        <span className="icon is-small">
-          <i className="fa fa-fast-backward"></i>
-        </span>
-      </button>
+      <div className="control">
+        <button name="mas_lento" type="button" className="button mx-5 is-small" onClick={controlarSimulacion}>
+          <span className="icon" style={{ fontSize: "0.5rem" }}>
+            <i className="fa fa-fast-backward"></i>
+          </span>
+        </button>
+      </div>
       <input
         type="range"
         name="velocidad_animacion"
@@ -26,11 +25,13 @@ const VelocidadAnimacion = ({controlarSimulacion, velocidadAnimacion}) => (
         step="0.25"
         onChange={controlarSimulacion}
       />
-      <button name="mas_rapido" type="button" className="button" onClick={controlarSimulacion}>
-        <span className="icon is-small">
-          <i className="fa fa-fast-forward"></i>
-        </span>
-      </button>
+      <div className="control">
+        <button name="mas_rapido" type="button" className="button mx-5 is-small" onClick={controlarSimulacion}>
+          <span className="icon" style={{ fontSize: "0.5rem" }}>
+            <i className="fa fa-fast-forward"></i>
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 );

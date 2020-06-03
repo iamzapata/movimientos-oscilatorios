@@ -2,7 +2,7 @@ import React from "react";
 
 const ControlesAnimacion = ({ controlarSimulacion }) => (
   <div className="columns">
-    <div className="column iniciar-parar">
+    <div className="column flex items-center justify-center">
       <div className="control px-1">
         <button name="parar" type="button" className="button" onClick={controlarSimulacion}>
           <span className="icon is-small">
@@ -11,7 +11,7 @@ const ControlesAnimacion = ({ controlarSimulacion }) => (
         </button>
       </div>
 
-      <div className="control">
+      <div className="control px-1">
         <button name="pausar" type="button" className="button" onClick={controlarSimulacion}>
           <span className="icon is-small">
             <i className="fa fa-pause-circle"></i>
@@ -19,7 +19,7 @@ const ControlesAnimacion = ({ controlarSimulacion }) => (
         </button>
       </div>
 
-      <div className="control">
+      <div className="control px-1">
         <button name="iniciar" type="button" className="button" onClick={controlarSimulacion}>
           <span className="icon is-small">
             <i className="fa fa-play-circle"></i>

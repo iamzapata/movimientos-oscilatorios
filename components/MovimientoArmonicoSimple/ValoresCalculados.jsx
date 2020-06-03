@@ -65,7 +65,7 @@ const ValoresCalculados = ({
           <FormulaMatematica texto="E_m=" />
           <span className="has-text-grey">{formatearADosDecimales(energiaMecanica)}</span>
           <FormulaMatematica texto="J" />
-          <progress className="progress is-primary" value={energiaMecanica} max={energiaPotencialMax}>
+          <progress className="progress is-primary rounded-none" value={energiaMecanica} max={energiaPotencialMax}>
             {energiaMecanica}
           </progress>
         </p>
@@ -73,15 +73,15 @@ const ValoresCalculados = ({
           <FormulaMatematica texto="E_c=" />
           <span className="has-text-grey">{formatearADosDecimales(energiaCinetica)}</span>
           <FormulaMatematica texto="J" />
-          <progress className="progress is-link" value={energiaCinetica} max={energiaCineticaMax}>
+          <progress className="progress is-link rounded-none" value={energiaCinetica} max={energiaCineticaMax}>
             {energiaCinetica}
           </progress>
         </p>
         <p>
-          <FormulaMatematica texto="E_p" />
+          <FormulaMatematica texto="E_p=" />
           <span className="has-text-grey">{formatearADosDecimales(energiaPotencial)}</span>
           <FormulaMatematica texto="J" />
-          <progress className="progress is-info" value={energiaPotencial} max={energiaPotencialMax}>
+          <progress className="progress is-info rounded-none" value={energiaPotencial} max={energiaPotencialMax}>
             {energiaPotencialMax}
           </progress>
         </p>

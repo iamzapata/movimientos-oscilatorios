@@ -653,7 +653,7 @@ class MovimientoArmonicoSimple extends Component {
               <div className="columns">
                 <div className="column">
                   <div className="field is-vertical">
-                    <div className="field-label is-normal is-marginless">
+                    <div className="field-label is-normal is-marginless text-center">
                       <label className="label">Amplitud</label>
                     </div>
                     <div className="field-body w-100">
@@ -686,7 +686,7 @@ class MovimientoArmonicoSimple extends Component {
                 </div>
                 <div className="column">
                   <div className="field is-vertical">
-                    <div className="field-label is-normal is-marginless">
+                    <div className="field-label is-normal is-marginless text-center">
                       <label className="label">Frequencia Angular</label>
                     </div>
                     <div className="field-body w-100">
@@ -705,11 +705,11 @@ class MovimientoArmonicoSimple extends Component {
                 </div>
                 <div className="column">
                   <div className="field is-vertical">
-                    <div className="field-label is-normal is-marginless">
+                    <div className="field-label is-normal is-marginless text-center">
                       <label className="label">Fase Inicial</label>
                     </div>
                     <div className="field-body w-100">
-                      <div className="field">
+                      <div className="field flex">
                         <input
                           className="input"
                           type="number"
@@ -718,37 +718,35 @@ class MovimientoArmonicoSimple extends Component {
                           value={faseInicialInput}
                           onChange={this.controlarSimulacion}
                         />
-                      </div>
-                      <div className="UnidadesFaseInicial">
-                        <div className="field">
-                          <label className="FaseInicialGrados has-text-grey radio" htmlFor="grados">
+                        <div className="field flex flex-col items-start ml-3 relative" style={{ top: "-5px" }}>
+                          <label className="has-text-grey flex items-center" htmlFor="grados">
                             <input
+                              id="grados"
                               type="radio"
                               name="unidades_fase_inicial"
                               value="grados"
                               checked={unidadesFaseInicial === "grados"}
                               onChange={this.controlarSimulacion}
-                            />{" "}
-                            °
+                            />
+                            <span className="ml-1">°</span>
                           </label>
-                        </div>
-                        <div className="field">
-                          <label className="has-text-grey radio" htmlFor="radianes">
+                          <label className="has-text-grey flex items-center" htmlFor="radianes">
                             <input
+                              id="radianes"
                               type="radio"
                               name="unidades_fase_inicial"
                               value="radianes"
                               checked={unidadesFaseInicial === "radianes"}
                               onChange={this.controlarSimulacion}
-                            />{" "}
-                            rad
+                            />
+                            <span className="ml-1">rad</span>
                           </label>
                         </div>
                       </div>
                     </div>
-                    <div className="Contenedor_ValoresFaseInicial">
+                    <div className="flex items-center justify-center">
                       <canvas id="canvasfaseinicial"></canvas>
-                      <div className="valoresFaseInicial">
+                      <div className="">
                         <p>
                           <span>{valorGrados}</span>
                           <span className="has-text-grey"> °</span>
