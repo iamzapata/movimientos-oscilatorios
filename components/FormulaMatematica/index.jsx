@@ -10,7 +10,7 @@ const FormulaMatematica = ({ texto, className }) => {
 
   return (
     <span
-      className={classNames("FormulaMatematica inline-block", className)}
+      className={classNames("FormulaMatematica", className)}
       dangerouslySetInnerHTML={{ __html }}
     />
   );

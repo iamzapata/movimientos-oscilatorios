@@ -2,7 +2,7 @@ import React from "react";
 
 const ControlesAnimacion = ({ controlarSimulacion }) => (
   <div className="columns">
-    <div className="column flex items-center justify-center">
+    <div className="column flex items-center justify-center pt-0">
       <div className="control px-1">
         <button name="parar" type="button" className="button" onClick={controlarSimulacion}>
           <span className="icon is-small">
