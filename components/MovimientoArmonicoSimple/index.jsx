@@ -3,6 +3,7 @@ import TextoAyuda from "components/MovimientoArmonicoSimple/TextoAyuda";
 import Formulas from "components/MovimientoArmonicoSimple/Formulas";
 import ValoresCalculados from "components/MovimientoArmonicoSimple/ValoresCalculados";
 import VelocidadAnimacion from "components/VelocidadAnimacion";
+import ControlesAnimacion from "components/ControlesAnimacion";
 
 import { PI, masa, K } from "constants";
 
@@ -24,6 +25,18 @@ const estadoInicial = {
   unidadesFaseInicial: "grados",
   reproduccionEnCurso: false,
   incremento: VALOR_INCREMEMENTO,
+
+  frecuencia: 0,
+  periodo: 0,
+  posicion: 0,
+  velocidad: 0,
+  aceleracion: 0,
+  fuerza: 0,
+  energiaCinetica: 0,
+  energiaCineticaMax: 0,
+  energiaPotencial: 0,
+  energiaPotencialMax: 0,
+  energiaMecanica: 0,
 };
 
 class MovimientoArmonicoSimple extends Component {
@@ -67,7 +80,8 @@ class MovimientoArmonicoSimple extends Component {
   };
 
   controlarSimulacion = (evento) => {
-    let { name, value } = evento.target;
+    const { velocidadAnimacion, faseInicialInput } = this.state;
+    let { name, value } = evento.currentTarget;
 
     const valor = parseFloat(value);
 
@@ -89,22 +103,13 @@ class MovimientoArmonicoSimple extends Component {
         this.actualizarFaseInicial(valor);
         break;
       case "unidades_fase_inicial":
-        this.setState({ unidadesFaseInicial: evento.target.value }, () =>
-          this.actualizarFaseInicial(this.state.faseInicialInput)
-        );
+        this.setState({ unidadesFaseInicial: evento.target.value }, () => this.actualizarFaseInicial(faseInicialInput));
         break;
       case "iniciar":
-        rangeAmplitud.disabled = true;
-        botonParar.disabled = false;
-        botonPausar.disabled = false;
-        botonIniciar.disabled = true;
-        this.reproduccionEnCurso = true;
+        this.setState({ reproduccionEnCurso: true });
         break;
       case "pausar":
-        botonPausar.disabled = true;
-        botonIniciar.disabled = false;
-        rangeAmplitud.disabled = false;
-        this.reproduccionEnCurso = false;
+        this.setState({ reproduccionEnCurso: false });
         break;
       case "parar":
         this.reestablecerValores();
@@ -114,10 +119,10 @@ class MovimientoArmonicoSimple extends Component {
         this.actualizarVelocidadAnimacion(valor);
         break;
       case "mas_rapido":
-        this.actualizarVelocidadAnimacion(Number(this.velocidadAnimacion) + 0.25);
+        this.actualizarVelocidadAnimacion(Number(velocidadAnimacion) + 0.25);
         break;
       case "mas_lento":
-        this.actualizarVelocidadAnimacion(Number(this.velocidadAnimacion) - 0.25);
+        this.actualizarVelocidadAnimacion(Number(velocidadAnimacion) - 0.25);
         break;
       default:
         null;
@@ -180,27 +185,19 @@ class MovimientoArmonicoSimple extends Component {
 
     const energiaMecanica = energiaCinetica + energiaPotencial;
 
-    document.getElementById("frecuencia_oscilacion").innerText = frecuencia.toFixed(2);
-    document.getElementById("periodo_oscilacion").innerText = periodo.toFixed(2);
-
-    document.getElementById("tiempo_oscilacion").innerText = t.toFixed(2);
-    document.getElementById("posicion_oscilacion").innerText = posicion.toFixed(2);
-    document.getElementById("velocidad_oscilacion").innerText = velocidad.toFixed(2);
-    document.getElementById("aceleracion_oscilacion").innerText = aceleracion.toFixed(2);
-    document.getElementById("fuerza_oscilacion").innerText = fuerza.toFixed(2);
-
-    document.getElementById("energia_mecanica").innerHTML = energiaMecanica.toFixed(2);
-    document.getElementById("energia_cinetica").innerHTML = energiaCinetica.toFixed(2);
-    document.getElementById("energia_potencial").innerHTML = energiaPotencial.toFixed(2);
-
-    document.getElementById("energia_mecanica_barra").value = energiaMecanica;
-    document.getElementById("energia_mecanica_barra").max = energiaPotencialMax;
-
-    document.getElementById("energia_cinetica_barra").value = energiaCinetica;
-    document.getElementById("energia_cinetica_barra").max = energiaCineticaMax;
-
-    document.getElementById("energia_potencial_barra").value = energiaPotencial;
-    document.getElementById("energia_potencial_barra").max = energiaPotencialMax;
+    this.setState({
+      frecuencia,
+      periodo,
+      posicion,
+      velocidad,
+      aceleracion,
+      fuerza,
+      energiaCinetica,
+      energiaCineticaMax,
+      energiaPotencial,
+      energiaPotencialMax,
+      energiaMecanica,
+    });
   };
 
   actualizarVelocidadAnimacion = (valor) => {
@@ -208,9 +205,7 @@ class MovimientoArmonicoSimple extends Component {
       return;
     }
     this.velocidadAnimacion = valor;
-    document.getElementById("velocida_animacion").innerText = valor;
-    inputVelocidadAnimacion.value = valor;
-    this.incremento = VALOR_INCREMEMENTO * valor;
+    this.setState({ velocidadAnimacion: valor, incremento: VALOR_INCREMEMENTO * valor });
   };
 
   actualizarAmplitudInput = (valor) => {
@@ -227,6 +222,19 @@ class MovimientoArmonicoSimple extends Component {
     this.setState({ amplitud: valor });
   };
 
+  actualizarAmplitudRange = (valor) => {
+    if (valor > AMPLITUD_MAXIMA || valor < AMPLITUD_MINIMA) {
+      const valorLimite = AMPLITUD_MAXIMA * Math.sign(valor);
+      inputAmplitud.value = valorLimite;
+      this.setState({ amplitud: valorLimite });
+      this.limpiarAmplitudes();
+      return;
+    }
+
+    this.setState({ amplitud: valor });
+    this.limpiarAmplitudes();
+  };
+
   obtenerValorFaseInicial = (unidadesFaseInicial) => {
     const { faseInicial } = this.state;
 
@@ -241,8 +249,6 @@ class MovimientoArmonicoSimple extends Component {
 
   actualizarFaseInicial = (valor) => {
     const { unidadesFaseInicial } = this.state;
-
-    console.warn("actualizarFaseInicial", valor, unidadesFaseInicial);
 
     if (!valor) return;
 
@@ -387,19 +393,6 @@ class MovimientoArmonicoSimple extends Component {
     context.restore();
   };
 
-  actualizarAmplitudRange = (valor) => {
-    if (valor > AMPLITUD_MAXIMA || valor < AMPLITUD_MINIMA) {
-      const valorLimite = AMPLITUD_MAXIMA * Math.sign(valor);
-      inputAmplitud.value = valorLimite;
-      this.setState({ amplitud: valorLimite });
-      this.limpiarAmplitudes();
-      return;
-    }
-
-    this.setState({ amplitud: valor });
-    this.limpiarAmplitudes();
-  };
-
   dibujarAnguloFaseInicial = () => {
     const { faseInicial } = this.state;
     const { canvasFaseInicial: canvas, contextFaseInicial: context } = this;
@@ -445,13 +438,14 @@ class MovimientoArmonicoSimple extends Component {
   };
 
   dibujarAmplitudes = () => {
+    const { amplitud } = this.state;
     const { width: anchoCanvas, height: altoCanvas, contextSecundario: context } = this;
 
-    if (this.amplitud === 0) return;
+    if (amplitud === 0) return;
 
-    const amplitudMasX = anchoCanvas / 2 + this.amplitud * Math.sign(this.amplitud);
+    const amplitudMasX = anchoCanvas / 2 + amplitud * Math.sign(amplitud);
 
-    const amplitudMenosX = anchoCanvas / 2 - this.amplitud * Math.sign(this.amplitud);
+    const amplitudMenosX = anchoCanvas / 2 - amplitud * Math.sign(amplitud);
 
     context.save();
     context.lineWidth = 0.5;
@@ -473,9 +467,10 @@ class MovimientoArmonicoSimple extends Component {
   };
 
   dibujarVectorVelocidad = () => {
+    const { amplitud } = this.state;
     const { width: anchoCanvas, contextVectores: context, dimensionBloque } = this;
 
-    if (this.amplitud === 0) return;
+    if (amplitud === 0) return;
 
     const posicionEnCanvas = this.calcularPosicionEnCanvas();
 
@@ -506,9 +501,10 @@ class MovimientoArmonicoSimple extends Component {
   };
 
   dibujarVectorAceleracion = () => {
+    const { amplitud } = this.state;
     const { width: anchoCanvas, contextVectores: context, dimensionBloque } = this;
 
-    if (this.amplitud === 0) return;
+    if (amplitud === 0) return;
 
     const posicionEnCanvas = this.calcularPosicionEnCanvas();
 
@@ -540,9 +536,10 @@ class MovimientoArmonicoSimple extends Component {
   };
 
   dibujarVectorFuerza = () => {
+    const { amplitud } = this.state;
     const { width: anchoCanvas, contextVectores: context, dimensionBloque } = this;
 
-    if (this.amplitud === 0) return;
+    if (amplitud === 0) return;
 
     const posicionEnCanvas = this.calcularPosicionEnCanvas();
 
@@ -574,9 +571,10 @@ class MovimientoArmonicoSimple extends Component {
   };
 
   dibujarVectores = () => {
+    const { amplitud } = this.state;
     this.limpiarVectores();
 
-    if (this.amplitud === 0) return;
+    if (amplitud === 0) return;
 
     this.dibujarVectorVelocidad();
     this.dibujarVectorAceleracion();
@@ -624,12 +622,13 @@ class MovimientoArmonicoSimple extends Component {
   };
 
   limpiarTrayectoriaMasa = () => {
+    const { dimensionBloque } = this.state;
     const { width: anchoCanvas, height: altoCanvas, contextPrincipal: context } = this;
-    context.clearRect(5, altoCanvas / 2 - this.dimensionBloque - 10, anchoCanvas, this.dimensionBloque + 10);
+    context.clearRect(5, altoCanvas / 2 - dimensionBloque - 10, anchoCanvas, dimensionBloque + 10);
   };
 
   render() {
-    const { amplitud, frecuenciaAngular, faseInicialInput, unidadesFaseInicial } = this.state;
+    const { amplitud, frecuenciaAngular, faseInicialInput, unidadesFaseInicial, velocidadAnimacion } = this.state;
     const valorGrados = this.obtenerValorFaseInicial("grados").toFixed(0);
     const valorRadianes = this.obtenerValorFaseInicial("radianes").toFixed(2);
 
@@ -641,7 +640,7 @@ class MovimientoArmonicoSimple extends Component {
           <canvas id="canvasprincipal"></canvas>
           <canvas id="canvasvectores"></canvas>
           <TextoAyuda />
-          <VelocidadAnimacion />
+          <VelocidadAnimacion controlarSimulacion={this.controlarSimulacion} velocidadAnimacion={velocidadAnimacion} />
         </div>
         <section className="section">
           <div className="container is-fluid is-paddingless">
@@ -649,7 +648,7 @@ class MovimientoArmonicoSimple extends Component {
             <div className="columns">
               <hr className="w-100" />
             </div>
-            <ValoresCalculados />
+            <ValoresCalculados valoresCalculados={this.state} />
             <div className="box">
               <div className="columns">
                 <div className="column">
@@ -660,7 +659,6 @@ class MovimientoArmonicoSimple extends Component {
                     <div className="field-body w-100">
                       <div className="field">
                         <input
-                          id="amplitud_input"
                           className="input"
                           type="number"
                           name="amplitud_input"
@@ -673,8 +671,6 @@ class MovimientoArmonicoSimple extends Component {
                     <div className="field-body w-100">
                       <div className="field">
                         <input
-                          className="w-100"
-                          id="amplitud_range"
                           name="amplitud_range"
                           placeholder="Desplazamiento Inicial"
                           type="range"
@@ -682,7 +678,7 @@ class MovimientoArmonicoSimple extends Component {
                           max={AMPLITUD_MAXIMA}
                           value={amplitud}
                           className="slider"
-                          onInput={this.controlarSimulacion}
+                          onChange={this.controlarSimulacion}
                         />
                       </div>
                     </div>
@@ -696,7 +692,6 @@ class MovimientoArmonicoSimple extends Component {
                     <div className="field-body w-100">
                       <div className="field">
                         <input
-                          id="frecuencia_angular"
                           className="input"
                           type="number"
                           name="frecuencia_angular"
@@ -716,7 +711,6 @@ class MovimientoArmonicoSimple extends Component {
                     <div className="field-body w-100">
                       <div className="field">
                         <input
-                          id="fase_inicial"
                           className="input"
                           type="number"
                           name="fase_inicial"
@@ -730,7 +724,6 @@ class MovimientoArmonicoSimple extends Component {
                           <label className="FaseInicialGrados has-text-grey radio" htmlFor="grados">
                             <input
                               type="radio"
-                              id="grados"
                               name="unidades_fase_inicial"
                               value="grados"
                               checked={unidadesFaseInicial === "grados"}
@@ -743,7 +736,6 @@ class MovimientoArmonicoSimple extends Component {
                           <label className="has-text-grey radio" htmlFor="radianes">
                             <input
                               type="radio"
-                              id="radianes"
                               name="unidades_fase_inicial"
                               value="radianes"
                               checked={unidadesFaseInicial === "radianes"}
@@ -770,33 +762,7 @@ class MovimientoArmonicoSimple extends Component {
                   </div>
                 </div>
               </div>
-              <div className="columns">
-                <div className="column iniciar-parar">
-                  <div className="control px-1">
-                    <button name="parar" type="button" className="button" disabled>
-                      <span className="icon is-small">
-                        <i className="fa fa-stop-circle"></i>
-                      </span>
-                    </button>
-                  </div>
-
-                  <div className="control">
-                    <button name="pausar" type="button" className="button" disabled>
-                      <span className="icon is-small">
-                        <i className="fa fa-pause-circle"></i>
-                      </span>
-                    </button>
-                  </div>
-
-                  <div className="control">
-                    <button name="iniciar" type="button" className="button" disabled>
-                      <span className="icon is-small">
-                        <i className="fa fa-play-circle"></i>
-                      </span>
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <ControlesAnimacion controlarSimulacion={this.controlarSimulacion} />
             </div>
           </div>
         </section>

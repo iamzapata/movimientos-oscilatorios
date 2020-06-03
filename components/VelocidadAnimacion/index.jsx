@@ -1,6 +1,6 @@
 import React from "react";
 
-const VelocidadAnimacion = () => (
+const VelocidadAnimacion = ({controlarSimulacion, velocidadAnimacion}) => (
   <div className="columns VelocidadAnimacion">
     <div className="column">
       <span
@@ -19,12 +19,12 @@ const VelocidadAnimacion = () => (
       </button>
       <input
         type="range"
-        id="velocidad_animacion_range"
         name="velocidad_animacion"
         min="0.25"
-        value="1.25"
+        value={velocidadAnimacion}
         max="2.25"
         step="0.25"
+        onChange={controlarSimulacion}
       />
       <button name="mas_rapido" type="button" className="button">
         <span className="icon is-small">
