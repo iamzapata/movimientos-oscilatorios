@@ -2,7 +2,7 @@ import React from "react";
 import FormulaMatematica from "components/FormulaMatematica";
 
 const ValoresCalculados = ({
-  valoresCalculados: {
+  estado: {
     t,
     frecuencia,
     periodo,
