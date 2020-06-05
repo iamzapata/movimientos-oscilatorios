@@ -2,7 +2,7 @@ import React from "react";
 import FormulaMatematica from "components/FormulaMatematica";
 
 const Formulas = () => (
-  <div className="columns Formulas mt-5">
+  <div className="columns Formulas mt-5" style={{marginBottom: '0'}}>
     <div className="column">
       <FormulaMatematica texto="\boldsymbol{x(t)}= Asin(\omega t + \phi)" className="mb-2 flex flex" />
       <FormulaMatematica
@@ -31,7 +31,7 @@ const Formulas = () => (
         </div>
         <div className="column flex flex-col justify-center">
           <FormulaMatematica texto="\boldsymbol{T}=\frac{1}{f}=\frac {2\pi}{\omega}" className="mb-2 flex" />
-          <FormulaMatematica texto="\boldsymbol\omega={\sqrt \frac{k}{m}}" className="mb-2 flex" />
+          <FormulaMatematica texto="\boldsymbol\omega={\sqrt \frac{K}{m}}" className="mb-2 flex" />
         </div>
       </div>
     </div>
@@ -47,6 +47,7 @@ const Formulas = () => (
       <FormulaMatematica texto="\text{de osilación en el instante }\boldsymbol{t}\text{.}"/>
       <FormulaMatematica texto="\boldsymbol{f} \text{ es la frecuencia de oscilación.}" className="flex mb-2" />
       <FormulaMatematica texto="\boldsymbol{T} \text{ es el período de oscilación.}" className="flex mb-2" />
+      {/* <FormulaMatematica texto="\boldsymbol{K} \text{ es la constante del resorte.}" className="flex" /> */}
     </div>
   </div>
 );

@@ -1,7 +1,7 @@
 import React from "react";
 
 const TextoAyuda = () => (
-  <div className="columns">
+  <div className="columns" style={{marginBottom: '0'}}>
     <div className="column">
       <div className="Texto-Ayuda text-right">
         <div className="tooltip">
