@@ -6,7 +6,7 @@ const ControlesVariables = ({
   valorGrados,
   valorRadianes,
   controlarSimulacion,
-  estado: { amplitud, frecuenciaAngular, faseInicialInput, unidadesFaseInicial },
+  estado: { amplitud, frecuenciaAngular, faseInicialInput, unidadesFaseInicial, masa, K},
 }) => (
   <div className="columns" style={{ marginBottom: "0" }}>
     <div className="column">
@@ -45,16 +45,35 @@ const ControlesVariables = ({
     <div className="column">
       <div className="field is-vertical">
         <div className="field-label is-normal is-marginless text-center">
-          <label className="label">Frequencia Angular</label>
+          <label className="label">m</label>
         </div>
         <div className="field-body">
           <div className="field">
             <input
               className="input"
               type="number"
-              name="frecuencia_angular"
-              placeholder="Frecuencia Angular"
-              value={frecuenciaAngular}
+              name="masa"
+              placeholder="masa"
+              value={masa}
+              onChange={controlarSimulacion}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="column">
+      <div className="field is-vertical">
+        <div className="field-label is-normal is-marginless text-center">
+          <label className="label">K</label>
+        </div>
+        <div className="field-body">
+          <div className="field">
+            <input
+              className="input"
+              type="number"
+              name="K"
+              placeholder="Constante Resorte"
+              value={K}
               onChange={controlarSimulacion}
             />
           </div>

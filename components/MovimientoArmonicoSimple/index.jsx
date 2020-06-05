@@ -7,7 +7,7 @@ import ControlesVariables from "components/MovimientoArmonicoSimple/ControlesVar
 import VelocidadAnimacion from "components/VelocidadAnimacion";
 import ControlesAnimacion from "components/ControlesAnimacion";
 
-import { PI, masa, K } from "constants";
+import { PI } from "constants";
 
 // Este es un valor abritrario pra simular
 // que una oscilación con omega en 6.28 dura un segundo
@@ -21,7 +21,8 @@ const estadoInicial = {
   dimensionBloque: 100,
   velocidadAnimacion: 1,
   amplitud: 0,
-  frecuenciaAngular: 1,
+  masa: 1,
+  K: 1,
   faseInicial: 0,
   faseInicialInput: 0,
   unidadesFaseInicial: "grados",
@@ -34,6 +35,7 @@ const estadoInicial = {
   velocidad: 0,
   aceleracion: 0,
   fuerza: 0,
+  frecuenciaAngular: 1,
   energiaCinetica: 0,
   energiaCineticaMax: 0,
   energiaPotencial: 0,
@@ -101,6 +103,20 @@ class MovimientoArmonicoSimple extends Component {
         }
         this.setState({ frecuenciaAngular: valor ? valor : 0 });
         break;
+      case "masa":
+        if (valor < 0) {
+          this.setState({ masa: 0 });
+          return;
+        }
+        this.setState({ masa: value }, () => this.actualizarFrecuenciaAngular());
+        break;
+      case "K":
+        if (valor < 0) {
+          this.setState({ K: 0 });
+          return;
+        }
+        this.setState({ K: value }, () => this.actualizarFrecuenciaAngular());
+        break;
       case "fase_inicial":
         this.actualizarFaseInicial(valor);
         break;
@@ -135,8 +151,6 @@ class MovimientoArmonicoSimple extends Component {
     this.setState({
       ...estadoInicial,
     });
-
-    establecerValoresInput();
   };
 
   calcularPosicionEnCanvas = () => {
@@ -165,11 +179,12 @@ class MovimientoArmonicoSimple extends Component {
   };
 
   calcularFuerza = () => {
+    const { K } = this.state;
     return -K * this.calcularPosicionReal();
   };
 
   actualizarValoresCalculados = () => {
-    const { frecuenciaAngular, amplitud, t } = this.state;
+    const { frecuenciaAngular, amplitud, masa, K } = this.state;
 
     const frecuencia = frecuenciaAngular / (2 * PI);
     const periodo = 1 / frecuencia;
@@ -263,6 +278,12 @@ class MovimientoArmonicoSimple extends Component {
       this.setState({ faseInicial: valor, faseInicialInput: valor });
       return;
     }
+  };
+
+  actualizarFrecuenciaAngular = () => {
+    const { masa, K } = this.state;
+    const frecuenciaAngular = Math.sqrt(K / masa);
+    this.setState({ frecuenciaAngular });
   };
 
   dibujarResorte = () => {
@@ -641,7 +662,6 @@ class MovimientoArmonicoSimple extends Component {
         </Head>
 
         <div className="my-5" style={{ width: "1000px" }}>
-
           <h4 className="title is-4 text-center">Movimiento Armónico Simple</h4>
 
           <div id="ventanagrafica">

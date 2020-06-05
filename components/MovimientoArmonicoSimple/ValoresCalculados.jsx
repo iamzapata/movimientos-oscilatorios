@@ -10,6 +10,7 @@ const ValoresCalculados = ({
     velocidad,
     aceleracion,
     fuerza,
+    frecuenciaAngular,
     energiaCinetica,
     energiaCineticaMax,
     energiaPotencial,
@@ -58,6 +59,11 @@ const ValoresCalculados = ({
           <FormulaMatematica texto="F="className='inline-block'  />
           <span className="has-text-grey">{formatearADosDecimales(fuerza)}</span>
           <FormulaMatematica texto="N"  className='inline-block'/>
+        </p>
+        <p>
+        <FormulaMatematica texto="\omega="className='inline-block'  />
+          <span className="has-text-grey">{formatearADosDecimales(frecuenciaAngular)}</span>
+          <FormulaMatematica texto="rad/s"  className='inline-block'/>
         </p>
       </div>
       <div className="column Energia">
