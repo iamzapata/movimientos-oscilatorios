@@ -4,7 +4,7 @@ import FormulaMatematica from "components/FormulaMatematica";
 const Formulas = () => (
   <div className="columns Formulas mt-5" style={{marginBottom: '0'}}>
     <div className="column">
-      <FormulaMatematica texto="\boldsymbol{x(t)}= Asin(\omega t + \phi)" className="mb-2 flex flex" />
+      <FormulaMatematica texto="\boldsymbol{x(t)}= A\ {cos}(\omega t + \phi)" className="mb-2 flex flex" />
       <FormulaMatematica
         texto="\boldsymbol{v(t)}={\frac {dx}{dt}}=-\omega A\ {sen}(\omega t+\phi)"
         className="mb-2 flex flex"
@@ -16,7 +16,7 @@ const Formulas = () => (
       <div className="columns mt-2">
         <div className="column mb-2">
           <FormulaMatematica texto="\boldsymbol{E_{p}}={\frac {1}{2}}kx^{2}" className="mb-2 flex" />
-          <FormulaMatematica texto="{\boldsymbol{ E_{c}}={\frac {1}{2}}m,v^{2}}" className="mb-2 flex" />
+          <FormulaMatematica texto="{\boldsymbol{ E_{c}}={\frac {1}{2}}mv^{2}}" className="mb-2 flex" />
         </div>
         <div className="column">
           <FormulaMatematica texto="\boldsymbol{E_{m}}=E_{p}+E_{c}" className="mb-2 flex" />

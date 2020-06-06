@@ -7,7 +7,7 @@ import ControlesVariables from "components/MovimientoArmonicoSimple/ControlesVar
 import VelocidadAnimacion from "components/VelocidadAnimacion";
 import ControlesAnimacion from "components/ControlesAnimacion";
 
-import { PI } from "constants";
+import { PI, PI2 } from "constants";
 
 // Este es un valor abritrario pra simular
 // que una oscilación con omega en 6.28 dura un segundo
@@ -150,12 +150,12 @@ class MovimientoArmonicoSimple extends Component {
   deshabilitarParar = () => {
     const { reproduccionEnCurso, amplitud } = this.state;
 
-    return amplitud === 0 || !reproduccionEnCurso
+    return amplitud === 0 || !reproduccionEnCurso;
   };
   deshabilitarPausar = () => {
     const { reproduccionEnCurso, amplitud } = this.state;
 
-    return amplitud === 0 || !reproduccionEnCurso
+    return amplitud === 0 || !reproduccionEnCurso;
   };
   deshabilitarIniciar = () => {
     const { amplitud } = this.state;
@@ -186,10 +186,10 @@ class MovimientoArmonicoSimple extends Component {
     return -amplitud * Math.sin(frecuenciaAngular * t + faseInicial);
   };
 
-  calcularAceleracion = (posicion) => {
-    const { frecuenciaAngular } = this.state;
+  calcularAceleracion = () => {
+    const { frecuenciaAngular, amplitud, t, faseInicial } = this.state;
 
-    return -Math.pow(frecuenciaAngular, 2) * posicion;
+    return -amplitud * Math.pow(frecuenciaAngular, 2) * Math.cos(frecuenciaAngular * t + faseInicial);
   };
 
   calcularFuerza = () => {
@@ -200,12 +200,12 @@ class MovimientoArmonicoSimple extends Component {
   actualizarValoresCalculados = () => {
     const { frecuenciaAngular, amplitud, masa, K } = this.state;
 
-    const frecuencia = frecuenciaAngular / (2 * PI);
+    const frecuencia = frecuenciaAngular / PI2;
     const periodo = 1 / frecuencia;
 
     const posicion = this.calcularPosicionReal();
     const velocidad = this.calcularVelocidad();
-    const aceleracion = this.calcularAceleracion(posicion);
+    const aceleracion = this.calcularAceleracion();
     const fuerza = this.calcularFuerza();
 
     const energiaCinetica = 0.5 * masa * Math.pow(velocidad, 2);
@@ -334,8 +334,8 @@ class MovimientoArmonicoSimple extends Component {
       for (let j = 0; j < 1; j += step) {
         let xx = xInicial + x * (i + j * step);
         let yy = yInicial;
-        xx -= Math.sin(j * Math.PI * 2);
-        yy += Math.sin(j * Math.PI * 2) * windingHeight;
+        xx -= Math.sin(j * PI2);
+        yy += Math.sin(j * PI2) * windingHeight;
         contextPrincipal.lineTo(xx, yy);
       }
     }
@@ -364,8 +364,8 @@ class MovimientoArmonicoSimple extends Component {
       for (let j = 0.25; j <= 0.76; j += 0.01) {
         let xx = xInicial + x * (i + j * step);
         let yy = yInicial + yPathEnd * (i + j * step);
-        xx -= Math.sin(j * Math.PI * 2);
-        yy += Math.sin(j * Math.PI * 2) * windingHeight;
+        xx -= Math.sin(j * PI2);
+        yy += Math.sin(j * PI2) * windingHeight;
         if (j === 0.25) {
           contextPrincipal.moveTo(xx, yy);
         } else {
@@ -451,7 +451,7 @@ class MovimientoArmonicoSimple extends Component {
     context.save();
     context.beginPath();
     context.strokeStyle = "#7a7a7a";
-    context.arc(centro, centro, 50, 0, 2 * PI);
+    context.arc(centro, centro, 50, 0, PI2);
     context.stroke();
     context.restore();
 

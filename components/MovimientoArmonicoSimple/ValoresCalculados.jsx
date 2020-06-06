@@ -24,69 +24,73 @@ const ValoresCalculados = ({
     <div className="columns">
       <div className="column FrecuenciaPeriodo">
         <p>
-          <FormulaMatematica texto="f=" className='inline-block'/>
+          <FormulaMatematica texto="f=" className="inline-block" />
           <span className="has-text-grey">{formatearADosDecimales(frecuencia)}</span>
-          <FormulaMatematica texto="Hz" className='inline-block' />
+          <FormulaMatematica texto="Hz" className="inline-block" />
         </p>
         <p>
-          <FormulaMatematica texto="T=" className='inline-block' />
+          <FormulaMatematica texto="T=" className="inline-block" />
           <span className="has-text-grey">{formatearADosDecimales(periodo)}</span>
-          <FormulaMatematica texto="s" className='inline-block' />
+          <FormulaMatematica texto="s" className="inline-block" />
         </p>
       </div>
       <div className="column TiempoPosicionVelocidadAceleracion">
         <p>
-          <FormulaMatematica texto="t=" className='inline-block' />
+          <FormulaMatematica texto="t=" className="inline-block" />
           <span className="has-text-grey">{formatearADosDecimales(t)}</span>
-          <FormulaMatematica texto="s" className='inline-block' />
+          <FormulaMatematica texto="s" className="inline-block" />
         </p>
         <p>
-          <FormulaMatematica texto="x(t)=" className='inline-block' />
+          <FormulaMatematica texto="x(t)=" className="inline-block" />
           <span className="has-text-grey">{formatearADosDecimales(posicion)}</span>
-          <FormulaMatematica texto="m" className='inline-block' />
+          <FormulaMatematica texto="m" className="inline-block" />
         </p>
         <p>
-          <FormulaMatematica texto="v(t)=" className='inline-block' />
+          <FormulaMatematica texto="v(t)=" className="inline-block" />
           <span className="has-text-grey">{formatearADosDecimales(velocidad)}</span>
-          <FormulaMatematica texto="m/s" className='inline-block' />
+          <FormulaMatematica texto="m/s" className="inline-block" />
         </p>
         <p>
-          <FormulaMatematica texto="a(t)="className='inline-block'  />
+          <FormulaMatematica texto="a(t)=" className="inline-block" />
           <span className="has-text-grey">{formatearADosDecimales(aceleracion)}</span>
-          <FormulaMatematica texto="m/s^2"className='inline-block'  />
+          <FormulaMatematica texto="m/s^2" className="inline-block" />
         </p>
         <p>
-          <FormulaMatematica texto="F="className='inline-block'  />
+          <FormulaMatematica texto="F=" className="inline-block" />
           <span className="has-text-grey">{formatearADosDecimales(fuerza)}</span>
-          <FormulaMatematica texto="N"  className='inline-block'/>
+          <FormulaMatematica texto="N" className="inline-block" />
         </p>
         <p>
-        <FormulaMatematica texto="\omega="className='inline-block'  />
+          <FormulaMatematica texto="\omega=" className="inline-block" />
           <span className="has-text-grey">{formatearADosDecimales(frecuenciaAngular)}</span>
-          <FormulaMatematica texto="rad/s"  className='inline-block'/>
+          <FormulaMatematica texto="rad/s" className="inline-block" />
         </p>
       </div>
       <div className="column Energia">
         <p>
-          <FormulaMatematica texto="E_m=" className='inline-block' />
+          <FormulaMatematica texto="E_m=" className="inline-block" />
           <span className="has-text-grey">{formatearADosDecimales(energiaMecanica)}</span>
-          <FormulaMatematica texto="J" className='inline-block' />
-          <progress className="progress is-primary rounded-none" value={energiaMecanica} max={energiaPotencialMax}>
+          <FormulaMatematica texto="J" className="inline-block" />
+          <progress
+            className="progress is-primary rounded-none"
+            value={energiaMecanica}
+            max={energiaMecanica}
+          >
             {energiaMecanica}
           </progress>
         </p>
         <p>
-          <FormulaMatematica texto="E_c="className='inline-block' />
+          <FormulaMatematica texto="E_c=" className="inline-block" />
           <span className="has-text-grey">{formatearADosDecimales(energiaCinetica)}</span>
-          <FormulaMatematica texto="J" className='inline-block' />
+          <FormulaMatematica texto="J" className="inline-block" />
           <progress className="progress is-link rounded-none" value={energiaCinetica} max={energiaCineticaMax}>
             {energiaCinetica}
           </progress>
         </p>
         <p>
-          <FormulaMatematica texto="E_p=" className='inline-block' />
+          <FormulaMatematica texto="E_p=" className="inline-block" />
           <span className="has-text-grey">{formatearADosDecimales(energiaPotencial)}</span>
-          <FormulaMatematica texto="J"className='inline-block' />
+          <FormulaMatematica texto="J" className="inline-block" />
           <progress className="progress is-info rounded-none" value={energiaPotencial} max={energiaPotencialMax}>
             {energiaPotencialMax}
           </progress>
