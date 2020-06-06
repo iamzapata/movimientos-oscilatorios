@@ -8,7 +8,7 @@ import "pages/styles.scss";
 // This default export is required in a new `pages/_app.js` file.
 export default class MyApp extends Component {
   componentDidMount() {
-    ReactGA.initialize('UA-168753949-1');
+    ReactGA.initialize("UA-168753949-1", { debug: true });
   }
 
   render() {
