@@ -1,3 +1,13 @@
+@import "~bulma";
+@import "~normalize.css";
+@import "~katex/dist/katex.min.css";
+@import "~tailwindcss/dist/tailwind.css";
+@import "~font-awesome/css/font-awesome.min.css";
+
+.flex {
+  display: flex !important;
+}
+
 html {
   min-height: 100vh;
 }
