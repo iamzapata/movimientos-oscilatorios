@@ -25,9 +25,9 @@ const Navbar = () => (
 
     <div id="navbarBasicExample" className="navbar-menu">
       <div className="navbar-start">
-        <Link href="documentacion">
+        {/* <Link href="documentacion">
           <a className="navbar-item">Documentación</a>
-        </Link>
+        </Link> */}
       </div>
 
       <div className="navbar-end">
