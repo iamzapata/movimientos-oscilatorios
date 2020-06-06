@@ -147,6 +147,20 @@ class MovimientoArmonicoSimple extends Component {
     }
   };
 
+  deshabilitarParar = () => {
+    const { reproduccionEnCurso, amplitud } = this.state;
+
+    return amplitud === 0 || !reproduccionEnCurso
+  };
+  deshabilitarPausar = () => {
+    const { reproduccionEnCurso, amplitud } = this.state;
+
+    return amplitud === 0 || !reproduccionEnCurso
+  };
+  deshabilitarIniciar = () => {
+    const { amplitud } = this.state;
+    return amplitud === 0;
+  };
   reestablecerValores = () => {
     this.setState({
       ...estadoInicial,
@@ -677,7 +691,13 @@ class MovimientoArmonicoSimple extends Component {
                 />
               </div>
               <div className="column">
-                <ControlesAnimacion estado={this.state} controlarSimulacion={this.controlarSimulacion} />
+                <ControlesAnimacion
+                  estado={this.state}
+                  controlarSimulacion={this.controlarSimulacion}
+                  deshabilitarParar={this.deshabilitarParar()}
+                  deshabilitarPausar={this.deshabilitarPausar()}
+                  deshabilitarIniciar={this.deshabilitarIniciar()}
+                />
               </div>
             </div>
           </div>
