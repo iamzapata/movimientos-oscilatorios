@@ -1,14 +1,10 @@
 import React from "react";
 import Head from "next/head";
-import ReactGA from 'react-ga';
+import ReactGA from "react-ga";
 import Navbar from "components/Navbar";
 
-ReactGA.initialize('UA-144565173-1', {
-  debug: true,
-  titleCase: false,
-  gaOptions: {
-    userId: 123
-  }
+ReactGA.initialize(process.env.ga, {
+  debug: process.env.development,
 });
 
 import "pages/styles.scss";
