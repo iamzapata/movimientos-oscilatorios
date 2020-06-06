@@ -3,7 +3,7 @@ import Head from "next/head";
 import ReactGA from "react-ga";
 import Navbar from "components/Navbar";
 
-ReactGA.initialize(process.env.ga, {
+ReactGA.initialize(process.env.GA, {
   debug: process.env.development,
 });
 
