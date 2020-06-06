@@ -1,7 +1,7 @@
 import React from "react";
 
 const VelocidadAnimacion = ({ controlarSimulacion, velocidadAnimacion }) => (
-  <div className="columns flex flex-col absolute left-0 right-0" style={{bottom: '5px'}}>
+  <div className="columns flex flex-col absolute left-0" style={{bottom: '5px'}}>
     <div className="column flex justify-center pb-0">
       <span id="velocida_animacion" className="is-size-7 has-text-weight-semibold">
         1

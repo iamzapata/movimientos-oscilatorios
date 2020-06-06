@@ -669,10 +669,17 @@ class MovimientoArmonicoSimple extends Component {
             <canvas id="canvasprincipal"></canvas>
             <canvas id="canvasvectores"></canvas>
 
-            <VelocidadAnimacion
-              controlarSimulacion={this.controlarSimulacion}
-              velocidadAnimacion={velocidadAnimacion}
-            />
+            <div className="columns">
+              <div className="column">
+                <VelocidadAnimacion
+                  controlarSimulacion={this.controlarSimulacion}
+                  velocidadAnimacion={velocidadAnimacion}
+                />
+              </div>
+              <div className="column">
+                <ControlesAnimacion estado={this.state} controlarSimulacion={this.controlarSimulacion} />
+              </div>
+            </div>
           </div>
 
           <hr className="w-full" />
@@ -693,8 +700,6 @@ class MovimientoArmonicoSimple extends Component {
                 estado={this.state}
                 controlarSimulacion={this.controlarSimulacion}
               />
-
-              <ControlesAnimacion estado={this.state} controlarSimulacion={this.controlarSimulacion} />
             </div>
           </section>
         </div>
