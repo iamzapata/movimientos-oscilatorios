@@ -30,7 +30,7 @@ const Navbar = () => (
         </Link> */}
       </div>
 
-      <div className="navbar-end">
+      {/* <div className="navbar-end">
         <div className="navbar-item">
           <div className="buttons">
             <a className="button is-secondary">
@@ -40,7 +40,7 @@ const Navbar = () => (
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   </nav>
 );
