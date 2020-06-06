@@ -2,7 +2,7 @@ import React from "react";
 
 const ControlesAnimacion = ({ controlarSimulacion, deshabilitarParar, deshabilitarPausar, deshabilitarIniciar }) => (
   <div className="columns flex flex-col absolute right-0" style={{ bottom: "5px" }}>
-    <div className="column flex items-center justify-center pt-0">
+    <div className="column flex items-center justify-center pt-0 mr-4">
       <div className="control px-1">
         <button
           name="parar"
