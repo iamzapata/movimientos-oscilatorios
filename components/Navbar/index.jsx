@@ -34,8 +34,8 @@ const Navbar = () => (
         <div className="navbar-item">
           <div className="buttons">
             <a className="button is-secondary">
-              <span class="icon">
-                <i class="fa fa-question-circle"></i>
+              <span className="icon">
+                <i className="fa fa-question-circle"></i>
               </span>
             </a>
           </div>
