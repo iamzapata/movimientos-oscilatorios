@@ -20,12 +20,12 @@ export default function MyApp({ Component, pageProps }) {
       <div className="container h-screen">
         <Component {...pageProps} />
       </div>
-      <footer class="footer">
-        <div class="content has-text-centered">
+      <footer className="footer">
+        <div className="content has-text-centered">
           <p>
             <a href="https://github.com/iamzapata/movimientos-oscilatorios" target="_blank">
               <span className="icon">
-                <i class="fa fa-github-square" aria-hidden="true" />
+                <i className="fa fa-github-square" aria-hidden="true" />
               </span>
             </a>
           </p>
