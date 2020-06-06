@@ -10,7 +10,7 @@ const Formulas = () => (
         className="mb-2 flex flex"
       />
       <FormulaMatematica
-        texto="\boldsymbol{a(t)}={\frac {dv(t)}{dt}}=-\omega ^{2}A\,\cos(\omega t+\phi )=-\omega ^{2}x(t)"
+        texto="\boldsymbol{a(t)}={\frac {dv(t)}{dt}}=-\omega ^{2}A\,\cos(\omega t+\phi )"
         className="mb-2 flex flex"
       />
       <div className="columns mt-2">

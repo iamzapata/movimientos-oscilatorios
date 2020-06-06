@@ -183,7 +183,7 @@ class MovimientoArmonicoSimple extends Component {
   calcularVelocidad = () => {
     const { t, frecuenciaAngular, faseInicial, amplitud } = this.state;
 
-    return -amplitud * Math.sin(frecuenciaAngular * t + faseInicial);
+    return -amplitud * frecuenciaAngular * Math.sin(frecuenciaAngular * t + faseInicial);
   };
 
   calcularAceleracion = () => {
