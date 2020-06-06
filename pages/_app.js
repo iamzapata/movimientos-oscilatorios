@@ -1,36 +1,39 @@
-import React from "react";
+import React, { Component } from "react";
 import Head from "next/head";
 import ReactGA from "react-ga";
 import Navbar from "components/Navbar";
 
-ReactGA.initialize(process.env.NEXT_PUBLIC_ANALYTICS_ID, {
-  debug: process.env.development,
-});
-
 import "pages/styles.scss";
 
 // This default export is required in a new `pages/_app.js` file.
-export default function MyApp({ Component, pageProps }) {
-  return (
-    <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
-      <Navbar />
-      <div className="container h-screen">
-        <Component {...pageProps} />
-      </div>
-      <footer className="footer">
-        <div className="content has-text-centered">
-          <p>
-            <a href="https://github.com/iamzapata/movimientos-oscilatorios" target="_blank">
-              <span className="icon">
-                <i className="fa fa-github-square" aria-hidden="true" />
-              </span>
-            </a>
-          </p>
+export default class MyApp extends Component {
+  componentDidMount() {
+    ReactGA.initialize(process.env.NEXT_PUBLIC_ANALYTICS_ID);
+  }
+
+  render() {
+    const { Component, pageProps } = this.props;
+    return (
+      <>
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Head>
+        <Navbar />
+        <div className="container h-screen">
+          <Component {...pageProps} />
         </div>
-      </footer>
-    </>
-  );
+        <footer className="footer">
+          <div className="content has-text-centered">
+            <p>
+              <a href="https://github.com/iamzapata/movimientos-oscilatorios" target="_blank">
+                <span className="icon">
+                  <i className="fa fa-github-square" aria-hidden="true" />
+                </span>
+              </a>
+            </p>
+          </div>
+        </footer>
+      </>
+    );
+  }
 }
