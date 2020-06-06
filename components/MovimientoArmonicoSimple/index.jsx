@@ -235,7 +235,6 @@ class MovimientoArmonicoSimple extends Component {
     if (valor < 0.25 || valor > 2.25) {
       return;
     }
-    this.velocidadAnimacion = valor;
     this.setState({ velocidadAnimacion: valor, incremento: VALOR_INCREMEMENTO * valor });
   };
 
