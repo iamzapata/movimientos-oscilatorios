@@ -674,7 +674,7 @@ class MovimientoArmonicoSimple extends Component {
           <title>M.A.S</title>
         </Head>
 
-        <div className="my-5" style={{ width: "1000px" }}>
+        <div className="" style={{ width: "1000px" }}>
           <h4 className="title is-4 text-center">Movimiento Armónico Simple</h4>
 
           <div id="ventanagrafica">

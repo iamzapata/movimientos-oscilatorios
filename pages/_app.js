@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Navbar from "components/Navbar";
 
 import "bulma";
 import "pages/styles.css";
@@ -15,7 +16,21 @@ export default function MyApp({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Component {...pageProps} />
+      <Navbar />
+      <div className="container h-screen">
+        <Component {...pageProps} />
+      </div>
+      <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            <a href="https://github.com/iamzapata/movimientoarmonicosimple" target="_blank">
+              <span className="icon">
+                <i class="fa fa-github-square" aria-hidden="true" />
+              </span>
+            </a>
+          </p>
+        </div>
+      </footer>
     </>
   );
 }
