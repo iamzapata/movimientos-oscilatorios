@@ -23,7 +23,7 @@ export default function MyApp({ Component, pageProps }) {
       <footer class="footer">
         <div class="content has-text-centered">
           <p>
-            <a href="https://github.com/iamzapata/movimientoarmonicosimple" target="_blank">
+            <a href="https://github.com/iamzapata/movimientos-oscilatorios" target="_blank">
               <span className="icon">
                 <i class="fa fa-github-square" aria-hidden="true" />
               </span>
