@@ -9,7 +9,7 @@ import ControlesAnimacion from "components/ControlesAnimacion";
 
 import { PI, PI2 } from "constants";
 
-// Este es un valor abritrario pra simular
+// Este es un valor abritrario para simular
 // que una oscilación con omega en 6.28 dura un segundo
 const VALOR_INCREMEMENTO = 0.035;
 
@@ -305,67 +305,61 @@ class MovimientoArmonicoSimple extends Component {
     let xInicial = 1;
     let yInicial = altoCanvas / 2 - 50; // 50 es la mitdad el ancho del bloque
     let posicionXActual = this.state.x;
-    const windings = 20;
-    const windingHeight = 15;
-    const offsetPadding = 0;
-    const backSideColor = "rgba(0, 0, 0, 0.9)";
-    const frontSideColor = "gray";
-    const lineWidth = 9;
+    const picos = 20;
+    const altoPicos = 20;
+    const relleno = 10;
+    const colorDeAtras = "rgba(0, 0, 0, 0.9)";
+    const colorDelFrente = "gray";
+    const especorLinea = 10;
 
-    // step size has to be inversely proportionate to the windings
-    const step = 1 / windings;
+    const pasos = 1 / picos;
 
     const { contextPrincipal } = this;
 
-    contextPrincipal.strokeStyle = backSideColor;
-    contextPrincipal.lineWidth = lineWidth;
+    contextPrincipal.strokeStyle = colorDeAtras;
+    contextPrincipal.lineWidth = especorLinea;
     contextPrincipal.lineJoin = "bevel";
     contextPrincipal.lineCap = "square";
     contextPrincipal.beginPath();
     contextPrincipal.moveTo(xInicial, yInicial);
 
-    xInicial += offsetPadding;
-    posicionXActual -= offsetPadding;
+    xInicial += relleno;
+    posicionXActual -= relleno;
     let x = posicionXActual - xInicial;
-    let yPathEnd = 0; //yInicial - yInicial
+    let finalCaminoY = 0;
 
-    for (let i = 0; i <= 1 - step; i += step) {
-      // for each winding
-      for (let j = 0; j < 1; j += step) {
-        let xx = xInicial + x * (i + j * step);
+    for (let i = 0; i <= 1 - pasos; i += pasos) {
+      for (let j = 0; j < 1; j += pasos) {
+        let xx = xInicial + x * (i + j * pasos);
         let yy = yInicial;
         xx -= Math.sin(j * PI2);
-        yy += Math.sin(j * PI2) * windingHeight;
+        yy += Math.sin(j * PI2) * altoPicos;
         contextPrincipal.lineTo(xx, yy);
       }
     }
 
-    // finishes off backside dibujarCanvasing, including black -line
     contextPrincipal.lineTo(posicionXActual, yInicial);
-    contextPrincipal.lineTo(posicionXActual + offsetPadding, yInicial);
+    contextPrincipal.lineTo(posicionXActual + relleno, yInicial);
     contextPrincipal.stroke();
 
-    contextPrincipal.strokeStyle = frontSideColor;
-    contextPrincipal.lineWidth = lineWidth - 4;
+    contextPrincipal.strokeStyle = colorDelFrente;
+    contextPrincipal.lineWidth = especorLinea - 5;
     contextPrincipal.lineJoin = "round";
     contextPrincipal.lineCap = "round";
     contextPrincipal.beginPath();
 
-    // left horizontal bar
-    contextPrincipal.moveTo(xInicial - offsetPadding, yInicial);
+    contextPrincipal.moveTo(xInicial - relleno, yInicial);
     contextPrincipal.lineTo(xInicial, yInicial);
 
-    // right horizontal bar
     contextPrincipal.moveTo(posicionXActual, yInicial);
-    contextPrincipal.lineTo(posicionXActual + offsetPadding, yInicial);
+    contextPrincipal.lineTo(posicionXActual + relleno, yInicial);
 
-    for (let i = 0; i <= 1 - step; i += step) {
-      // for each winding
+    for (let i = 0; i <= 1 - pasos; i += pasos) {
       for (let j = 0.25; j <= 0.76; j += 0.01) {
-        let xx = xInicial + x * (i + j * step);
-        let yy = yInicial + yPathEnd * (i + j * step);
+        let xx = xInicial + x * (i + j * pasos);
+        let yy = yInicial + finalCaminoY * (i + j * pasos);
         xx -= Math.sin(j * PI2);
-        yy += Math.sin(j * PI2) * windingHeight;
+        yy += Math.sin(j * PI2) * altoPicos;
         if (j === 0.25) {
           contextPrincipal.moveTo(xx, yy);
         } else {
