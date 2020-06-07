@@ -1,39 +1,54 @@
-import React, { Component } from "react";
+import React from "react";
 import Head from "next/head";
-import ReactGA from "react-ga";
 import Navbar from "components/Navbar";
-
 import "pages/styles.scss";
 
-// This default export is required in a new `pages/_app.js` file.
-export default class MyApp extends Component {
-  componentDidMount() {
-    ReactGA.initialize("UA-168753949-1", { debug: true });
-  }
+const AppFisica = ({ Component, pageProps, isProduction, NEXT_PUBLIC_ANALYTICS_ID }) => (
+  <>
+    <Head>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      {isProduction && (
+        <>
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${NEXT_PUBLIC_ANALYTICS_ID}`} />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
 
-  render() {
-    const { Component, pageProps } = this.props;
-    return (
-      <>
-        <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-        </Head>
-        <Navbar />
-        <div className="container h-screen">
-          <Component {...pageProps} />
-        </div>
-        <footer className="footer">
-          <div className="content has-text-centered">
-            <p>
-              <a href="https://github.com/iamzapata/movimientos-oscilatorios" target="_blank">
-                <span className="icon">
-                  <i className="fa fa-github-square" aria-hidden="true" />
-                </span>
-              </a>
-            </p>
-          </div>
-        </footer>
-      </>
-    );
-  }
-}
+                gtag('config', '${NEXT_PUBLIC_ANALYTICS_ID}', {
+                  page_path: window.location.pathname,
+                });
+              `,
+            }}
+          />
+        </>
+      )}
+    </Head>
+    <Navbar />
+    <div className="container h-screen">
+      <Component {...pageProps} />
+    </div>
+    <footer className="footer">
+      <div className="content has-text-centered">
+        <p>
+          <a href="https://github.com/iamzapata/movimientos-oscilatorios" target="_blank">
+            <span className="icon">
+              <i className="fa fa-github-square" aria-hidden="true" />
+            </span>
+          </a>
+        </p>
+      </div>
+    </footer>
+  </>
+);
+
+AppFisica.getInitialProps = async () => {
+  const NODE_ENV = process.env.NODE_ENV;
+  const NEXT_PUBLIC_ANALYTICS_ID = process.env.NEXT_PUBLIC_ANALYTICS_ID;
+  const isProduction = NODE_ENV === "production";
+  return { isProduction, NEXT_PUBLIC_ANALYTICS_ID };
+};
+
+export default AppFisica;
