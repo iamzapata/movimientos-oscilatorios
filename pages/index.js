@@ -19,7 +19,7 @@ export default function Home() {
               </a>
             </Link>
 
-            <Link href="/movimineto-sobre-amortiguado">
+            <Link href="/movimiento-sobre-amortiguado">
               <a className="box h-full">
                 <h2 className="text-center flex items-center justify-center h-full text-xl">
                   Movimiento Sobre Amortiguado
