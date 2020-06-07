@@ -86,21 +86,21 @@ Se puede comenzar a editar los archivos del proyecto. La aplicación se actualiz
 
 <pre>
 components
-   |-- <a href="#controles-simulacion" title="ControlesSimulacion">ControlesSimulacion</a>
+   |-- <a href="#controlessimulacion" title="ControlesSimulacion">ControlesSimulacion</a>
    |   |-- index.jsx
-   |-- <a href="#user-content-formula-matematica" title="FormulaMatematica">FormulaMatematica</a>
+   |-- <a href="#formulamatematica" title="FormulaMatematica">FormulaMatematica</a>
    |   |-- index.jsx
-   |-- MovimientoArmonicoSimple
+   |-- <a href="#velocidadanimacion" title="VelocidadAnimacion">VelocidadAnimacion</a>
+   |   |-- index.jsx
+   |-- <a href="#navbar" title="Navbar">Navbar</a>
+   |   |-- index.jsx
+   |-- <a href="#movimientoarmonicosimple" title="MovimientoArmonicoSimple">MovimientoArmonicoSimple</a>
    |   |-- ControlesVariables.jsx
    |   |-- Formulas.jsx
    |   |-- TextoAyuda.jsx
    |   |-- ValoresCalculados.jsx
    |   |-- index.jsx
-   |-- MovimientoSobreAmortiguado
-   |   |-- index.jsx
-   |-- Navbar
-   |   |-- index.jsx
-   |-- VelocidadAnimacion
+   |-- <a href="#movimientosobreamortiguado" title="MovimientoSobreAmortiguado">MovimientoSobreAmortiguado</a>
    |   |-- index.jsx
 constants
    |-- index.js
@@ -133,7 +133,17 @@ README.md
 
 ## Documentación
 
-### ControlesSimulacion
+### components
+
+#### ControlesSimulacion
+
+#### FormulaMatematica
+
+#### VelocidadAnimacion
+
+#### MovimientoArmonicoSimple
+
+#### MovimientoSobreAmortiguado
 
 ## Roadmap
 
