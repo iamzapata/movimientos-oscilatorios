@@ -137,6 +137,8 @@ Se puede comenzar a editar los archivos del proyecto. La aplicación se actualiz
 
 #### VelocidadAnimacion
 
+### Navbar
+
 #### MovimientoArmonicoSimple
 
 #### MovimientoSobreAmortiguado
