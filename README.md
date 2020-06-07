@@ -88,7 +88,7 @@ Se puede comenzar a editar los archivos del proyecto. La aplicación se actualiz
 components
    |-- <a href="#controles-simulacion" title="ControlesSimulacion">ControlesSimulacion</a>
    |   |-- index.jsx
-   |-- FormulaMatematica
+   |-- <a href="#user-content-formula-matematica" title="FormulaMatematica">FormulaMatematica</a>
    |   |-- index.jsx
    |-- MovimientoArmonicoSimple
    |   |-- ControlesVariables.jsx
@@ -133,7 +133,7 @@ README.md
 
 ## Documentación
 
-### Controles Animación
+### ControlesSimulacion
 
 ## Roadmap
 
@@ -153,5 +153,3 @@ Para aprender más acerca de desarrollo web y las tecnologías usadas en este pr
 [clonar-descargar]: imagenes/clonardescargar.png
 [controles-velocidad]: imagenes/controlesvelocidad.png
 [controles-simulacion]: imagenes/controlessimulacion.png
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-
