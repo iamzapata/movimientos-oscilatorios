@@ -5,7 +5,7 @@ import Formulas from "components/MovimientoArmonicoSimple/Formulas";
 import ValoresCalculados from "components/MovimientoArmonicoSimple/ValoresCalculados";
 import ControlesVariables from "components/MovimientoArmonicoSimple/ControlesVariables";
 import VelocidadAnimacion from "components/VelocidadAnimacion";
-import ControlesAnimacion from "components/ControlesAnimacion";
+import ControlesSimulacion from "components/ControlesSimulacion";
 
 import { PI, PI2 } from "constants";
 
@@ -684,7 +684,7 @@ class MovimientoArmonicoSimple extends Component {
                 />
               </div>
               <div className="column">
-                <ControlesAnimacion
+                <ControlesSimulacion
                   estado={this.state}
                   controlarSimulacion={this.controlarSimulacion}
                   deshabilitarParar={this.deshabilitarParar()}
