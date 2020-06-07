@@ -123,12 +123,8 @@ Se puede comenzar a editar los archivos del proyecto. La aplicación se actualiz
 <a href="#public" title="public">public</a>
    |-- favicon.ico
    |-- iconoresorte.png
-yarn.lock
-package.json
-jsconfig.json
-.gitignore
-.prettierrc
-README.md
+<a href="#package.json" title="package.json">package.json</a>
+<a href="#README.md" title="README.md">README.md</a>
 </pre>
 
 ## Documentación
