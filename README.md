@@ -139,13 +139,23 @@ Se puede comenzar a editar los archivos del proyecto. La aplicación se actualiz
 #### MovimientoSobreAmortiguado
 
 ### constantes
+Este archivo export la constante de `PI` y `2PI`. En vez de referenciar a `PI` con `Math.PI` o a `2PI` con `Math.PI * 2`, declaramos dos constantes: 
+
+```javascript
+const PI = Math.PI;
+const PI2 = Math.PI * 2;
+```
+
+Y las exportamos. Este archivo puede ser más util a media que se agreguen más simuladores y sean necesarias mas constantes.
 
 ### imagenes
+Contiene imagenes usadas en la documentación del proyecto.
 
 ### lib
+Contiene el código para incorporar google analytics al proyecto y así tener una mejor idea del uso y las visitas que tiene el sitio web.
 
 ### pages
-En este directorio se declaran las rutas que tiene la aplicación web. Si se crea un archivo o directorio con un nombre separado por `-`, los usuarios podrán navegar a esta ubicación añadiendo este texto a la url del sitio `https://fisica.app/`. Dentro de este directorio tenemos varios elementos: 
+En este directorio se declaran las rutas que tiene la aplicación web. Si se crea un archivo o directorio con un nombre separado por `-`, los usuarios podrán navegar a esta ubicación añadiendo este texto a la url del sitio `https://fisica.app/`. También se guardan otros archivos de uso comun por todas las páginas del sitio. Dentro de este directorio tenemos varios elementos: 
 
 ```bash
 |-- 404.jsx
@@ -164,7 +174,7 @@ Si el usuario navega a una ruta que no existe, se mostrará el contenido de este
 <img src='/imagenes/paginanoexiste.png' height='200px' width='auto' style='border: solid 1px black;'/>
 
 #### \_app.js
-En este archivo se incorpara el modulo de google analitycs y archivos de estilos css.
+En este archivo se incorporan el modulo de google analitycs y archivos de estilos css.
 
 #### index.js
 Contiene la declaración de los components que permite que el usuario pueda visitar los diferentes simuladores.
