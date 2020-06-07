@@ -80,7 +80,7 @@ Se puede comenzar a editar los archivos del proyecto. La aplicación se actualiz
 ## Estructura Del Proyecto
 
 <pre>
-<a href="#components" title="components">components</a>
+<a href="#componentes" title="componentes">componentes</a>
    |-- <a href="#controlessimulacion" title="ControlesSimulacion">ControlesSimulacion</a>
    |   |-- index.jsx
    |-- <a href="#formulamatematica" title="FormulaMatematica">FormulaMatematica</a>
@@ -124,7 +124,7 @@ Se puede comenzar a editar los archivos del proyecto. La aplicación se actualiz
 
 ## Documentación
 
-### 📁components
+### 📁componentes
 
 #### ControlesSimulacion
 
