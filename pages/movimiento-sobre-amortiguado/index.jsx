@@ -1,5 +1,5 @@
 import React from "react";
-import MovimientoSobreAmortiguado from "components/MovimientoSobreAmortiguado";
+import MovimientoSobreAmortiguado from "componentes/MovimientoSobreAmortiguado";
 
 const PaginaMovimientoSobreAmortiguado = () => (
   <div className="MovimientoSobreAmortiguado">

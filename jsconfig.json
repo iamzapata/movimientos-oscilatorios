@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "constantes": ["constantes"],
-      "components": ["components"]
+      "componentes": ["componentes"]
     }
   }
 }

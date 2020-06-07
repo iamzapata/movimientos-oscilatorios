@@ -1,5 +1,5 @@
 import React from "react";
-import FormulaMatematica from "components/FormulaMatematica";
+import FormulaMatematica from "componentes/FormulaMatematica";
 
 const Formulas = () => (
   <div className="columns Formulas mt-5" style={{marginBottom: '0'}}>

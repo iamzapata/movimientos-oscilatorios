@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Navbar from "components/Navbar";
+import Navbar from "componentes/Navbar";
 import "pages/styles.scss";
 
 const AppFisica = ({ Component, pageProps, isProduction, NEXT_PUBLIC_ANALYTICS_ID }) => (

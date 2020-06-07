@@ -1,5 +1,5 @@
 import React from "react";
-import MovimientoArmonicoSimple from "components/MovimientoArmonicoSimple";
+import MovimientoArmonicoSimple from "componentes/MovimientoArmonicoSimple";
 
 const PaginaMovimientoArmonicoSimple = () => (
   <div className="MovimientoArmonicoSimple">

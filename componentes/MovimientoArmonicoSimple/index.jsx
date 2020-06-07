@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Head from "next/head";
-import TextoAyuda from "components/MovimientoArmonicoSimple/TextoAyuda";
-import Formulas from "components/MovimientoArmonicoSimple/Formulas";
-import ValoresCalculados from "components/MovimientoArmonicoSimple/ValoresCalculados";
-import ControlesVariables from "components/MovimientoArmonicoSimple/ControlesVariables";
-import VelocidadAnimacion from "components/VelocidadAnimacion";
-import ControlesAnimacion from "components/ControlesSimulacion";
+import TextoAyuda from "componentes/MovimientoArmonicoSimple/TextoAyuda";
+import Formulas from "componentes/MovimientoArmonicoSimple/Formulas";
+import ValoresCalculados from "componentes/MovimientoArmonicoSimple/ValoresCalculados";
+import ControlesVariables from "componentes/MovimientoArmonicoSimple/ControlesVariables";
+import VelocidadAnimacion from "componentes/VelocidadAnimacion";
+import ControlesAnimacion from "componentes/ControlesSimulacion";
 
 import { PI, PI2 } from "constantes";
 
