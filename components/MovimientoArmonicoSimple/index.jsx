@@ -700,9 +700,7 @@ class MovimientoArmonicoSimple extends Component {
               </div>
             </div>
           </div>
-
-          <hr className="w-full" />
-
+          
           <section className="section p-0">
             <div className="container is-fluid is-paddingless">
               <Formulas />
