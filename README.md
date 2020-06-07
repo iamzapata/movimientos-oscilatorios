@@ -9,7 +9,7 @@
   <p align="center">
      Simulaciones de varios fenómenos oscilatorios. 
     <br />
-    <a href="https://github.com/iamzapata/movimientos-oscilatorios"><strong>Explorar la documentación »</strong></a>
+    <a href="https://github.com/iamzapata/movimientos-oscilatorios#user-content-construido-con"><strong>Explorar la documentación »</strong></a>
     <br />
     <br />
     <a href="https://fisica.app/">Ver Aplicación</a>
