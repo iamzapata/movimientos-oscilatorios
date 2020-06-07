@@ -85,7 +85,7 @@ Se puede comenzar a editar los archivos del proyecto. La aplicación se actualiz
 ## Estructura Del Proyecto
 
 <pre>
-components
+<a href="#components" title="components">components</a>
    |-- <a href="#controlessimulacion" title="ControlesSimulacion">ControlesSimulacion</a>
    |   |-- index.jsx
    |-- <a href="#formulamatematica" title="FormulaMatematica">FormulaMatematica</a>
@@ -102,16 +102,16 @@ components
    |   |-- index.jsx
    |-- <a href="#movimientosobreamortiguado" title="MovimientoSobreAmortiguado">MovimientoSobreAmortiguado</a>
    |   |-- index.jsx
-constants
+<a href="#constantes" title="constantes">constantes</a>
    |-- index.js
-imagenes
+<a href="#imagenes" title="imagenes">imagenes</a>
    |-- clonardescargar.png
    |-- controlessimulacion.png
    |-- controlesvelocidad.png
    |-- proyecto.png
-lib
+<a href="#lib" title="lib">lib</a>
    |-- gtag.js
-pages
+<a href="#pages" title="pages">pages</a>
    |-- 404.jsx
    |-- _app.js
    |-- index.js
@@ -120,7 +120,7 @@ pages
    |-- movimiento-sobre-amortiguado
    |   |-- index.jsx
    |-- styles.scss
-public
+<a href="#public" title="public">public</a>
    |-- favicon.ico
    |-- iconoresorte.png
 yarn.lock
@@ -144,6 +144,16 @@ README.md
 #### MovimientoArmonicoSimple
 
 #### MovimientoSobreAmortiguado
+
+## constantes
+
+## imagenes
+
+## lib
+
+## pages
+
+## public
 
 ## Roadmap
 
