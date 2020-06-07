@@ -39,30 +39,39 @@
 
 [![Captura del Producto][captura-proyecto]](https://fisica.app)
 
-Este proyecto intenta facilitar el aprendizaje de algunos temas de la física ondulatoria. Con el se espera que los estudiantes del curso tengan una herramienta util para complementar sus estudios.
+Este proyecto intenta facilitar el aprendizaje de algunos temas de la física ondulatoria. Con el se espera que los estudiantes del curso tengan una herramienta útil para complementar sus estudios.
 
 ## Construido Con
-Este proyecto hace uso de numerosas librerias open source (codigo fuente libre), especializadas para entornos Web/JavaScript. 
+Este proyecto hace uso de numerosas librerias open source (codigo fuente libre/abierto), especializadas para entornos Web/JavaScript. 
 
 * [NextJS](https://nextjs.org)
+Es un Framework encima de ReactJS que permite crear páginas y aplicacioens web de una manera ágil y estandarizada, y no requiere de mucha configuración.
 * [ReactJS](https://es.reactjs.org)
+Es la librería JavaScript más popular para constuir interfaces de usuarios. Fue creada por un equipo de desarrolladores en facebook y su código fue liberado en el 2013. Es la librería que usan gigantes de la tecnología como Facebook, Twitter, Instagram, Netflix, Whatsapp Web, Dropbox y Tesla para sus sitios web.
 * [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
+Es unos de los lenguajes de programación más popoulares de los últimos años, se emplea para crear aplicaciones y sitios web, servidores web como [expressjs](https://expressjs.com/), bases de datos como [mongodb](https://www.mongodb.com/) y otras tecnolgoías.
 * [HTML](https://developer.mozilla.org/es/docs/Web/HTML)
+Es un lenguaje markup que se usa para crear componentes básicos en la web. Como lo es un enlace: `<a href='http://google.com/'>google</a>`
+* [CSS](https://developer.mozilla.org/es/docs/Web/CSS)
+Es un lenguaje que permite describir la presentación visual de documentos HTML. Agregar color, tipos, tamaños y estilos de fuentes y animaciones son cosas que se pueden cambiar con CSS.
 * [Canvas API](https://developer.mozilla.org/es/docs/Web/HTML/Canvas)
+Es un elemento de HTML5 que permite dibujar gráficos en un navegador web.
 * [TailwindCSS](https://tailwindcss.com)
+Es una libreria de utilidades CSS.
 * [Bulma](https://bulma.io)
+Es una librería de componnentes CSS/HTML.
 
 ## Arrancando
 
-Primero, debemos obtener una copia del repositorio. Lo podemos clonar o descargar. Para ello, debemos hacer click en el botón verde que dice "Clone or download". La opción más fácil es "Download ZIP", pero muchos beneficios se obtinenen al clonar el repositorio usando <a href="https://rogerdudler.github.io/git-guide/index.es.html" target="_blank">GIT</a>. Para mas información acerca de **git** y como clonar un repositorio ir al siguiente <a href="https://desarrolloweb.com/articulos/git-clone-clonar-repositorio.html" target="_blank">link</a>. 
+Primero, debemos obtener una copia del repositorio. Lo podemos clonar o descargar. Para ello, debemos hacer click en el botón verde que dice "Clone or download". La opción más fácil es "Download ZIP", pero muchos beneficios se obtinenen al clonar el repositorio usando <a href="https://rogerdudler.github.io/git-guide/index.es.html" target="_blank">GIT</a>. Para mas información acerca de **git** y como clonar un repositorio ir al siguiente <a href="https://desarrolloweb.com/articulos/git-clone-clonar-repositorio.html" target="_blank">enlace</a>. 
 
 ### Prerrequisitos
 
-Dedebos descargar e instalar [nodejs](https://nodejs.org/es/download/) y [npm](https://www.npmjs.com/get-npm) en nuestro computador. Para ver un tutorial de como instalar estas dos herramientas ver este [enlace](https://tutobasico.com/instalar-nodejs-y-npm/). NodeJS es un un entorno de JavaScript que no necesita un navegador para ejecutarse. Es usado para crear servidors web y herramientas de desarrollo para hacer más fácil la creación de software usando JavaScript. Npm (Node Package Manager) por su parte es un administrador de librerias hechas en node y se usa para instalar dependencias en proyectos de JavaScript. 
+Dedebos descargar e instalar [nodejs](https://nodejs.org/es/download/) y [npm](https://www.npmjs.com/get-npm) en nuestro computador. Para ver un tutorial de como instalar estas dos herramientas ver este [enlace](https://tutobasico.com/instalar-nodejs-y-npm/). NodeJS es un un entorno de JavaScript que no necesita un navegador para ejecutarse. Es usado para crear servidors web y herramientas de desarrollo que hacen más fácil la creación de software usando JavaScript. Npm (Node Package Manager) por su parte es un administrador de librerias hechas en nodejs y se usa para instalar dependencias en proyectos de JavaScript. 
 
 ### Instalación
 
-Una vez estén instalados nodejs y npm, se podrá continuar con la instalación de dependencias del proyecot y posteriormente ejecutarlo localmente. Para esto podemos ir a la raíz del proyecto, y donde se encuentre el archivo `package.json` en una terminal, ejecutar `npm install`. Este comando instalará las dependencias del proyecto. Una vez haya completado la instlacióñn, podemos arrancar el proyecto:
+Una vez estén instalados nodejs y npm, se podrá continuar con la instalación de las dependencias del proyecto y posteriormente su ejecución localmente. Para esto podemos ir a la raíz del proyecto, donde se encuentre el archivo `package.json`, y estando en este directorio, en una terminal, ejecutar `npm install`. Este comando instalará las dependencias del proyecto. Una vez haya completado la instlación, podemos arrancar el proyecto:
 
 ```bash
 npm run dev
@@ -70,11 +79,21 @@ npm run dev
 
 Abrir [http://localhost:3000](http://localhost:3000) en el navegador para ver los resultados.
 
-Se pueden comenzar a editar los archivos del projecto. La aplicación se actualizara con los cambios a medida que se editen los archivos.
+Se puede comenzar a editar los archivos del proyecto. La aplicación se actualizará con los cambios a medida que se editen los archivos.
+
+## Documentación
+
+## Roadmap
 
 ## Aprender Más
 
-Para aprender más acerca de desarrollo web y las tecnologías usadas en este proyecto, visitar los siguientes enlaces. 
+Para aprender más acerca de desarrollo web y las tecnologías usadas en este proyecto, visitar los siguientes enlaces: 
+
+
+
+## Licencia
+
+## Contacto
 
 <!-- ENLACES / IMAGENES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
