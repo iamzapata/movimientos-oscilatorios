@@ -61,6 +61,8 @@ Es un lenguaje markup que se usa para crear componentes básicos en la web. Como
 Es un lenguaje que permite describir la presentación visual de documentos HTML. Agregar color, tipos, tamaños y estilos de fuentes y animaciones son cosas que se pueden cambiar con CSS.
 * [Canvas API](https://developer.mozilla.org/es/docs/Web/HTML/Canvas)
 Es un elemento de HTML5 que permite dibujar gráficos en un navegador web.
+* [Katex](https://katex.org/)
+Es una libreria que permite mostrar texto con una composición tipográfica tipo texto matemático.
 * [TailwindCSS](https://tailwindcss.com)
 Es una libreria de utilidades CSS.
 * [Bulma](https://bulma.io)
@@ -133,14 +135,33 @@ Se puede comenzar a editar los archivos del proyecto. La aplicación se actualiz
 ### 📁componentes
 
 #### ControlesSimulacion
+<img src='/imagenes/controlessimulacion.png' height='200px' width='auto' style='border: solid 1px black;'/>
+
+Contiene un componente reutilizable con aciones para inciar, pausar y parar la una simulación.
+
 
 #### FormulaMatematica
+Contiene un componente reutilizable que permite representar texto con notacion tipo [LaTeX](https://www.latex-project.org/):
+
+<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
 
 #### VelocidadAnimacion
+<img src='/imagenes/controlesvelocidad.png' height='200px' width='auto' style='border: solid 1px black;'/>
+
+Contiene un componente reutilizable que permite cambiar la velocidad de la animación.
 
 #### Navbar
+Contiene el componente que describe como se debe ver la barra de navegación. Por el momento solo contiene el logo de un resorte, peroa medida que el proyecto avancé se puede expandar.
 
 #### MovimientoArmonicoSimple
+```bash
+ |-- MovimientoArmonicoSimple
+ |   |-- ControlesVariables.jsx
+ |   |-- Formulas.jsx
+ |   |-- TextoAyuda.jsx
+ |   |-- ValoresCalculados.jsx
+ |   |-- index.jsx
+```
 
 #### MovimientoSobreAmortiguado
 
