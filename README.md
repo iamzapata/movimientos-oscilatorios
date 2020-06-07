@@ -124,7 +124,7 @@ Se puede comenzar a editar los archivos del proyecto. La aplicación se actualiz
 
 ## Documentación
 
-### components
+### 📁components
 
 #### ControlesSimulacion
 
@@ -138,7 +138,7 @@ Se puede comenzar a editar los archivos del proyecto. La aplicación se actualiz
 
 #### MovimientoSobreAmortiguado
 
-### constantes
+### 📁constantes
 Contiene las constantes que se usan a largo de la simulación.
 
 ```bash
@@ -155,7 +155,7 @@ const PI2 = Math.PI * 2;
 
 Y las exportamos. Este archivo puede ser más util a media que se agreguen más simuladores y sean necesarias mas constantes.
 
-### imagenes
+### 📁imagenes
 Contiene imagenes usadas en la documentación del proyecto.
 
 imagenes
@@ -164,7 +164,7 @@ imagenes
  |-- controlesvelocidad.png
  |-- proyecto.png
 
-### lib
+### 📁lib
 Contiene el código para incorporar google analytics al proyecto y así tener una mejor idea del uso y las visitas que tiene el sitio web.
 
 ```bash
@@ -172,7 +172,7 @@ lib
  |-- gtag.js
 ```
 
-### pages
+### 📁pages
 En este directorio se declaran las rutas que tiene la aplicación web. Si se crea un archivo o directorio con un nombre separado por `-`, los usuarios podrán navegar a esta ubicación añadiendo este texto a la url del sitio `https://fisica.app/`. También se guardan otros archivos de uso comun por todas las páginas del sitio. Dentro de este directorio tenemos varios elementos: 
 
 ```bash
@@ -210,16 +210,17 @@ Contiene las librerias de CSS y declaraciones personalizadas que modifican la pr
 
 <img src='/imagenes/sincss.png' height='200px' width='auto' style='border: solid 1px black;'/>
 
-### public
+### 📁public
 Contiene los archivos (imagenes y otros) que se quieren hacer públicos.
 
-### package.json
+### 📁package.json
 Contiena una lista de las librerias necesarias para ejecutar este proyecto.
 
-### README.md
+### 📁README.md
 Contiene este mismo texto que se está leyendo. [Github Markdown Language](https://github.github.com/gfm/)
 
 ## Roadmap
+Ruta de posibles y futuras funcionalidades
 
 ## Aprender Más
 Para aprender más acerca de desarrollo web y las tecnologías usadas en este proyecto, visitar los siguientes enlaces: 
