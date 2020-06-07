@@ -85,7 +85,7 @@ Se puede comenzar a editar los archivos del proyecto. La aplicación se actualiz
 ## Estructura Del Proyecto
 
 <pre>
-components
+<a href="#components" title="components">components</a>
    |-- <a href="#controlessimulacion" title="ControlesSimulacion">ControlesSimulacion</a>
    |   |-- index.jsx
    |-- <a href="#formulamatematica" title="FormulaMatematica">FormulaMatematica</a>
@@ -102,16 +102,16 @@ components
    |   |-- index.jsx
    |-- <a href="#movimientosobreamortiguado" title="MovimientoSobreAmortiguado">MovimientoSobreAmortiguado</a>
    |   |-- index.jsx
-constants
+<a href="#constantes" title="constantes">constantes</a>
    |-- index.js
-imagenes
+<a href="#imagenes" title="imagenes">imagenes</a>
    |-- clonardescargar.png
    |-- controlessimulacion.png
    |-- controlesvelocidad.png
    |-- proyecto.png
-lib
+<a href="#lib" title="lib">lib</a>
    |-- gtag.js
-pages
+<a href="#pages" title="pages">pages</a>
    |-- 404.jsx
    |-- _app.js
    |-- index.js
@@ -120,15 +120,11 @@ pages
    |-- movimiento-sobre-amortiguado
    |   |-- index.jsx
    |-- styles.scss
-public
+<a href="#public" title="public">public</a>
    |-- favicon.ico
    |-- iconoresorte.png
-yarn.lock
-package.json
-jsconfig.json
-.gitignore
-.prettierrc
-README.md
+<a href="#packagejson" title="packagejson">package.json</a>
+<a href="#readmemd" title="readmemd">README.md</a>
 </pre>
 
 ## Documentación
@@ -141,9 +137,65 @@ README.md
 
 #### VelocidadAnimacion
 
+#### Navbar
+
 #### MovimientoArmonicoSimple
 
 #### MovimientoSobreAmortiguado
+
+### constantes
+
+### imagenes
+
+### lib
+
+### pages
+
+En este directorio se declaran las rutas que tiene la aplicación web. Si se crea un archivo o directorio con un nombre separado por `-`, los usuarios podrán navegar a esta ubicación añadiendo este texto a la url del sitio `https://fisica.app/`. Dentro de este directorio tenemos varios elementos: 
+
+```bash
+|-- 404.jsx
+|-- _app.js
+|-- index.js
+|-- movimiento-armonico-simple
+|   |-- index.jsx
+|-- movimiento-sobre-amortiguado
+|   |-- index.jsx
+|-- styles.scss
+```
+
+#### 404.jsx
+Si el usuario navega a una ruta que no existe, se mostrará el contenido de este archivo por defecto. 
+
+#### \_app.js
+En este archivo se incorpara el modulo de google analitycs y archivos de estilos css.
+
+#### index.js
+Contiene la declaración de los components que permite que el usuario pueda visitar los diferentes simuladores.
+
+#### movimiento-armonico-simple
+
+Es la ruta declarada para el simulador de movimiento armónico simple. Con esto el usuario puede visitar https://fisica.app/movimiento-armonico-simple. 
+
+#### movimiento-sobre-amortiguado
+
+Aplica lo mismo dicho arriba.
+
+#### styles.scss
+
+Contiene las librerias de CSS y declaraciones personalizadas que modifican la presentación de la aplicación, sin esto no se vería tan "bonita".
+
+### public
+
+Contiene los archivos (imagenes y otros) que se quieren hacer públicos.
+
+### package.json
+
+Contiena una lista de las librerias necesarias para ejecutar este proyecto.
+
+### README.md
+
+Contiene este mismo texto que se está leyendo. [Github Markdown Language](https://github.github.com/gfm/)
 
 ## Roadmap
 
