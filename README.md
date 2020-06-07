@@ -78,5 +78,5 @@ Para aprender más acerca de desarrollo web y las tecnologías usadas en este pr
 
 <!-- ENLACES / IMAGENES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[captura-proyecto]: imagenges/proyecto.png
+[captura-proyecto]: imagenes/proyecto.png
 
