@@ -37,9 +37,9 @@
 
 ## Acerca del Proyecto
 
-[![Captura del Producto][captura-proyecto]](https://fisica.app)
-
 Este proyecto intenta facilitar el aprendizaje de algunos temas de la física ondulatoria. Con el se espera que los estudiantes del curso tengan una herramienta útil para complementar sus estudios.
+
+[![Captura del Producto][captura-proyecto]](https://fisica.app)
 
 ## Construido Con
 Este proyecto hace uso de numerosas librerias open source (codigo fuente libre/abierto), especializadas para entornos Web/JavaScript. 
