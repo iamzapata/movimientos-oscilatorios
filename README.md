@@ -139,6 +139,13 @@ Se puede comenzar a editar los archivos del proyecto. La aplicación se actualiz
 #### MovimientoSobreAmortiguado
 
 ### constantes
+Contiene las constantes que se usan a largo de la simulación.
+
+```bash
+constantes
+ |-- index.js
+```
+
 Este archivo export la constante de `PI` y `2PI`. En vez de referenciar a `PI` con `Math.PI` o a `2PI` con `Math.PI * 2`, declaramos dos constantes: 
 
 ```javascript
@@ -151,8 +158,19 @@ Y las exportamos. Este archivo puede ser más util a media que se agreguen más 
 ### imagenes
 Contiene imagenes usadas en la documentación del proyecto.
 
+imagenes
+ |-- clonardescargar.png
+ |-- controlessimulacion.png
+ |-- controlesvelocidad.png
+ |-- proyecto.png
+
 ### lib
 Contiene el código para incorporar google analytics al proyecto y así tener una mejor idea del uso y las visitas que tiene el sitio web.
+
+```bash
+lib
+ |-- gtag.js
+```
 
 ### pages
 En este directorio se declaran las rutas que tiene la aplicación web. Si se crea un archivo o directorio con un nombre separado por `-`, los usuarios podrán navegar a esta ubicación añadiendo este texto a la url del sitio `https://fisica.app/`. También se guardan otros archivos de uso comun por todas las páginas del sitio. Dentro de este directorio tenemos varios elementos: 
