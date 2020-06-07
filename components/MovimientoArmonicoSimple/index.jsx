@@ -5,9 +5,9 @@ import Formulas from "components/MovimientoArmonicoSimple/Formulas";
 import ValoresCalculados from "components/MovimientoArmonicoSimple/ValoresCalculados";
 import ControlesVariables from "components/MovimientoArmonicoSimple/ControlesVariables";
 import VelocidadAnimacion from "components/VelocidadAnimacion";
-import ControlesSimulacion from "components/ControlesSimulacion";
+import ControlesAnimacion from "components/ControlesSimulacion";
 
-import { PI, PI2 } from "constants";
+import { PI, PI2 } from "constantes";
 
 // Este es un valor abritrario para simular
 // que una oscilación con omega en 6.28 dura un segundo
@@ -684,7 +684,7 @@ class MovimientoArmonicoSimple extends Component {
                 />
               </div>
               <div className="column">
-                <ControlesSimulacion
+                <ControlesAnimacion
                   estado={this.state}
                   controlarSimulacion={this.controlarSimulacion}
                   deshabilitarParar={this.deshabilitarParar()}

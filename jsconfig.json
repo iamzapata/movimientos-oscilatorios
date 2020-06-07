@@ -2,9 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "constants": ["constants"],
-      "controles": ["controles"],
-      "init": ["init"],
+      "constantes": ["constantes"],
       "components": ["components"]
     }
   }
