@@ -165,13 +165,20 @@ En este directorio se declaran las rutas que tiene la aplicación web. Si se cre
 ```
 
 #### 404.jsx
+
 Si el usuario navega a una ruta que no existe, se mostrará el contenido de este archivo por defecto. 
 
+<img src='/imagenes/paginanoexiste.png' height='200px' width='auto'/>
+
+
 #### \_app.js
+
 En este archivo se incorpara el modulo de google analitycs y archivos de estilos css.
 
 #### index.js
 Contiene la declaración de los components que permite que el usuario pueda visitar los diferentes simuladores.
+
+<img src='/imagenes/listadomodules.png' height='200px' width='auto'/>
 
 #### movimiento-armonico-simple
 
@@ -184,6 +191,8 @@ Aplica lo mismo dicho arriba.
 #### styles.scss
 
 Contiene las librerias de CSS y declaraciones personalizadas que modifican la presentación de la aplicación, sin esto no se vería tan "bonita".
+
+<img src='/imagenes/sincss.png' height='200px' width='auto'/>
 
 ### public
 
@@ -203,8 +212,6 @@ Contiene este mismo texto que se está leyendo. [Github Markdown Language](https
 
 Para aprender más acerca de desarrollo web y las tecnologías usadas en este proyecto, visitar los siguientes enlaces: 
 
-
-
 ## Licencia
 
 ## Contacto
@@ -215,3 +222,7 @@ Para aprender más acerca de desarrollo web y las tecnologías usadas en este pr
 [clonar-descargar]: imagenes/clonardescargar.png
 [controles-velocidad]: imagenes/controlesvelocidad.png
 [controles-simulacion]: imagenes/controlessimulacion.png
+[listado-modules]: imagenes/listadomodules.png
+[pagina-no-existe]: imagenes/paginanoexiste.png
+[sin-css]: imagenes/sincss.png
+
