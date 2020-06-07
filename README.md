@@ -28,6 +28,7 @@
 * [Arrancando](#arrancando)
   * [Prerrequisitos](#prerrequisitos)
   * [Instalación](#instalación)
+* [Estructura del Proyecto](#estructura-del-proyecto)
 * [Documentación](#documentación)
 * [Roadmap](#roadmap)
 * [Contribuir](#contribuir)
@@ -81,7 +82,68 @@ Abrir [http://localhost:3000](http://localhost:3000) en el navegador para ver lo
 
 Se puede comenzar a editar los archivos del proyecto. La aplicación se actualizará con los cambios a medida que se editen los archivos.
 
+## Estructura Del Proyecto
+
+<pre>
+components
+   |-- <a href="#controlessimulacion" title="ControlesSimulacion">ControlesSimulacion</a>
+   |   |-- index.jsx
+   |-- <a href="#formulamatematica" title="FormulaMatematica">FormulaMatematica</a>
+   |   |-- index.jsx
+   |-- <a href="#velocidadanimacion" title="VelocidadAnimacion">VelocidadAnimacion</a>
+   |   |-- index.jsx
+   |-- <a href="#navbar" title="Navbar">Navbar</a>
+   |   |-- index.jsx
+   |-- <a href="#movimientoarmonicosimple" title="MovimientoArmonicoSimple">MovimientoArmonicoSimple</a>
+   |   |-- ControlesVariables.jsx
+   |   |-- Formulas.jsx
+   |   |-- TextoAyuda.jsx
+   |   |-- ValoresCalculados.jsx
+   |   |-- index.jsx
+   |-- <a href="#movimientosobreamortiguado" title="MovimientoSobreAmortiguado">MovimientoSobreAmortiguado</a>
+   |   |-- index.jsx
+constants
+   |-- index.js
+imagenes
+   |-- clonardescargar.png
+   |-- controlessimulacion.png
+   |-- controlesvelocidad.png
+   |-- proyecto.png
+lib
+   |-- gtag.js
+pages
+   |-- 404.jsx
+   |-- _app.js
+   |-- index.js
+   |-- movimiento-armonico-simple
+   |   |-- index.jsx
+   |-- movimiento-sobre-amortiguado
+   |   |-- index.jsx
+   |-- styles.scss
+public
+   |-- favicon.ico
+   |-- iconoresorte.png
+yarn.lock
+package.json
+jsconfig.json
+.gitignore
+.prettierrc
+README.md
+</pre>
+
 ## Documentación
+
+### components
+
+#### ControlesSimulacion
+
+#### FormulaMatematica
+
+#### VelocidadAnimacion
+
+#### MovimientoArmonicoSimple
+
+#### MovimientoSobreAmortiguado
 
 ## Roadmap
 
@@ -98,4 +160,6 @@ Para aprender más acerca de desarrollo web y las tecnologías usadas en este pr
 <!-- ENLACES / IMAGENES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [captura-proyecto]: imagenes/proyecto.png
-
+[clonar-descargar]: imagenes/clonardescargar.png
+[controles-velocidad]: imagenes/controlesvelocidad.png
+[controles-simulacion]: imagenes/controlessimulacion.png
