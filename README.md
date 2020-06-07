@@ -123,8 +123,8 @@ Se puede comenzar a editar los archivos del proyecto. La aplicación se actualiz
 <a href="#public" title="public">public</a>
    |-- favicon.ico
    |-- iconoresorte.png
-<a href="#package.json" title="package.json">package.json</a>
-<a href="#README.md" title="README.md">README.md</a>
+<a href="#packagejson" title="packagejson">package.json</a>
+<a href="#readmemd" title="readmemd">README.md</a>
 </pre>
 
 ## Documentación
@@ -137,21 +137,25 @@ Se puede comenzar a editar los archivos del proyecto. La aplicación se actualiz
 
 #### VelocidadAnimacion
 
-### Navbar
+#### Navbar
 
 #### MovimientoArmonicoSimple
 
 #### MovimientoSobreAmortiguado
 
-## constantes
+### constantes
 
-## imagenes
+### imagenes
 
-## lib
+### lib
 
-## pages
+### pages
 
-## public
+### public
+
+### package.json
+
+### REAMDE.md
 
 ## Roadmap
 
