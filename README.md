@@ -28,6 +28,7 @@
 * [Arrancando](#arrancando)
   * [Prerrequisitos](#prerrequisitos)
   * [Instalación](#instalación)
+* [Estructura del Proyecto](#estructura-del-proyecto)
 * [Documentación](#documentación)
 * [Roadmap](#roadmap)
 * [Contribuir](#contribuir)
@@ -81,7 +82,58 @@ Abrir [http://localhost:3000](http://localhost:3000) en el navegador para ver lo
 
 Se puede comenzar a editar los archivos del proyecto. La aplicación se actualizará con los cambios a medida que se editen los archivos.
 
+## Estructura Del Proyecto
+
+<pre>
+components
+   |-- ControlesSimulacion
+   |   |-- index.jsx
+   |-- FormulaMatematica
+   |   |-- index.jsx
+   |-- MovimientoArmonicoSimple
+   |   |-- ControlesVariables.jsx
+   |   |-- Formulas.jsx
+   |   |-- TextoAyuda.jsx
+   |   |-- ValoresCalculados.jsx
+   |   |-- index.jsx
+   |-- MovimientoSobreAmortiguado
+   |   |-- index.jsx
+   |-- Navbar
+   |   |-- index.jsx
+   |-- VelocidadAnimacion
+   |   |-- index.jsx
+constants
+   |-- index.js
+imagenes
+   |-- clonardescargar.png
+   |-- controlessimulacion.png
+   |-- controlesvelocidad.png
+   |-- proyecto.png
+lib
+   |-- gtag.js
+pages
+   |-- 404.jsx
+   |-- _app.js
+   |-- index.js
+   |-- movimiento-armonico-simple
+   |   |-- index.jsx
+   |-- movimiento-sobre-amortiguado
+   |   |-- index.jsx
+   |-- styles.scss
+public
+   |-- favicon.ico
+   |-- iconoresorte.png
+yarn.lock
+package.json
+jsconfig.json
+.gitignore
+.prettierrc
+README.md
+</pre>
+
 ## Documentación
+
+### Controles Animación
 
 ## Roadmap
 
@@ -98,4 +150,7 @@ Para aprender más acerca de desarrollo web y las tecnologías usadas en este pr
 <!-- ENLACES / IMAGENES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [captura-proyecto]: imagenes/proyecto.png
+[clonar-descargar]: imagenes/clonardescargar.png
+[controles-velocidad]: imagenes/controlesvelocidad.png
+[controles-simulacion]: imagenes/controlessimulacion.png
 
