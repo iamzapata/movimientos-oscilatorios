@@ -1,5 +1,13 @@
 import React from "react";
 
+/**
+ * Componente que despacha aciones para iniciar, pausar o parar la simulación.
+ * 
+ * @type {Componente}
+ * 
+ * @param {string} controlarSimulacion Función que se comunica con el canvas principal
+ * @param {boolean} deshabilitarParar Estado habilitado/deshabilitado boton parar
+ */
 const ControlesAnimacion = ({ controlarSimulacion, deshabilitarParar, deshabilitarPausar, deshabilitarIniciar }) => (
   <div className="columns flex flex-col absolute right-0" style={{ bottom: "5px" }}>
     <div className="column flex items-center justify-center pt-0 mr-4">
