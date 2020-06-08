@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: index.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * @module Modulo MovimientoArmonicoSimple
  */
 
@@ -76,7 +104,7 @@ const estadoInicial = {
  * const age = 21
  * const name = 'Jitendra Nirnejak'
  * return (
- *   <User age={age} name={name} />
+ *   &lt;User age={age} name={name} />
  * )
  */
 class MovimientoArmonicoSimple extends Component {
@@ -133,21 +161,21 @@ class MovimientoArmonicoSimple extends Component {
         this.actualizarAmplitudInput(valor ? valor : 0);
         break;
       case "frecuencia_angular":
-        if (valor < 0) {
+        if (valor &lt; 0) {
           this.setState({ frecuenciaAngular: 0 });
           return;
         }
         this.setState({ frecuenciaAngular: valor ? valor : 0 });
         break;
       case "masa":
-        if (valor < 0) {
+        if (valor &lt; 0) {
           this.setState({ masa: 0 });
           return;
         }
         this.setState({ masa: value }, () => this.actualizarFrecuenciaAngular());
         break;
       case "K":
-        if (valor < 0) {
+        if (valor &lt; 0) {
           this.setState({ K: 0 });
           return;
         }
@@ -268,14 +296,14 @@ class MovimientoArmonicoSimple extends Component {
   };
 
   actualizarVelocidadAnimacion = (valor) => {
-    if (valor < 0.25 || valor > 2.25) {
+    if (valor &lt; 0.25 || valor > 2.25) {
       return;
     }
     this.setState({ velocidadAnimacion: valor, incremento: VALOR_INCREMEMENTO * valor });
   };
 
   actualizarAmplitudInput = (valor) => {
-    if (valor > AMPLITUD_MAXIMA || valor < AMPLITUD_MINIMA) {
+    if (valor > AMPLITUD_MAXIMA || valor &lt; AMPLITUD_MINIMA) {
       const valorLimite = AMPLITUD_MAXIMA * Math.sign(valor);
 
       this.setState({ amplitud: valorLimite });
@@ -289,7 +317,7 @@ class MovimientoArmonicoSimple extends Component {
   };
 
   actualizarAmplitudRange = (valor) => {
-    if (valor > AMPLITUD_MAXIMA || valor < AMPLITUD_MINIMA) {
+    if (valor > AMPLITUD_MAXIMA || valor &lt; AMPLITUD_MINIMA) {
       const valorLimite = AMPLITUD_MAXIMA * Math.sign(valor);
       inputAmplitud.value = valorLimite;
       this.setState({ amplitud: valorLimite });
@@ -364,8 +392,8 @@ class MovimientoArmonicoSimple extends Component {
     let x = posicionXActual - xInicial;
     let finalCaminoY = 0;
 
-    for (let i = 0; i <= 1 - pasos; i += pasos) {
-      for (let j = 0; j < 1; j += pasos) {
+    for (let i = 0; i &lt;= 1 - pasos; i += pasos) {
+      for (let j = 0; j &lt; 1; j += pasos) {
         let xx = xInicial + x * (i + j * pasos);
         let yy = yInicial;
         xx -= Math.sin(j * PI2);
@@ -390,8 +418,8 @@ class MovimientoArmonicoSimple extends Component {
     contextPrincipal.moveTo(posicionXActual, yInicial);
     contextPrincipal.lineTo(posicionXActual + relleno, yInicial);
 
-    for (let i = 0; i <= 1 - pasos; i += pasos) {
-      for (let j = 0.25; j <= 0.76; j += 0.01) {
+    for (let i = 0; i &lt;= 1 - pasos; i += pasos) {
+      for (let j = 0.25; j &lt;= 0.76; j += 0.01) {
         let xx = xInicial + x * (i + j * pasos);
         let yy = yInicial + finalCaminoY * (i + j * pasos);
         xx -= Math.sin(j * PI2);
@@ -699,47 +727,47 @@ class MovimientoArmonicoSimple extends Component {
     const valorRadianes = this.obtenerValorFaseInicial("radianes").toFixed(2);
 
     return (
-      <>
-        <Head>
-          <title>M.A.S</title>
-        </Head>
+      &lt;>
+        &lt;Head>
+          &lt;title>M.A.S&lt;/title>
+        &lt;/Head>
 
-        <div className="" style={{ width: "1000px" }}>
-          <h4 className="title is-4 text-center">Movimiento Armónico Simple</h4>
+        &lt;div className="" style={{ width: "1000px" }}>
+          &lt;h4 className="title is-4 text-center">Movimiento Armónico Simple&lt;/h4>
 
-          <div id="ventanagrafica">
-            <canvas id="canvassecundario"></canvas>
-            <canvas id="canvasprincipal"></canvas>
-            <canvas id="canvasvectores"></canvas>
+          &lt;div id="ventanagrafica">
+            &lt;canvas id="canvassecundario">&lt;/canvas>
+            &lt;canvas id="canvasprincipal">&lt;/canvas>
+            &lt;canvas id="canvasvectores">&lt;/canvas>
 
-            <div className="columns">
-              <div className="column">
-                <VelocidadAnimacion
+            &lt;div className="columns">
+              &lt;div className="column">
+                &lt;VelocidadAnimacion
                   controlarSimulacion={this.controlarSimulacion}
                   velocidadAnimacion={velocidadAnimacion}
                 />
-              </div>
-              <div className="column">
-                <ControlesAnimacion
+              &lt;/div>
+              &lt;div className="column">
+                &lt;ControlesAnimacion
                   estado={this.state}
                   controlarSimulacion={this.controlarSimulacion}
                   deshabilitarParar={this.deshabilitarParar()}
                   deshabilitarPausar={this.deshabilitarPausar()}
                   deshabilitarIniciar={this.deshabilitarIniciar()}
                 />
-              </div>
-            </div>
-          </div>
+              &lt;/div>
+            &lt;/div>
+          &lt;/div>
 
-          <section className="section p-0">
-            <div className="container is-fluid is-paddingless">
-              <Formulas />
+          &lt;section className="section p-0">
+            &lt;div className="container is-fluid is-paddingless">
+              &lt;Formulas />
 
-              <TextoAyuda />
+              &lt;TextoAyuda />
 
-              <ValoresCalculados estado={this.state} />
+              &lt;ValoresCalculados estado={this.state} />
 
-              <ControlesVariables
+              &lt;ControlesVariables
                 valorGrados={valorGrados}
                 valorRadianes={valorRadianes}
                 AMPLITUD_MAXIMA={AMPLITUD_MAXIMA}
@@ -747,12 +775,35 @@ class MovimientoArmonicoSimple extends Component {
                 estado={this.state}
                 controlarSimulacion={this.controlarSimulacion}
               />
-            </div>
-          </section>
-        </div>
-      </>
+            &lt;/div>
+          &lt;/section>
+        &lt;/div>
+      &lt;/>
     );
   }
 }
 
 export default MovimientoArmonicoSimple;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Modulo%2520MovimientoArmonicoSimple.html">Modulo MovimientoArmonicoSimple</a></li></ul><h3>Classes</h3><ul><li><a href="module-Modulo%2520MovimientoArmonicoSimple-MovimientoArmonicoSimple.html">MovimientoArmonicoSimple</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Sun Jun 07 2020 18:56:25 GMT-0500 (Colombia Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
