@@ -1,10 +1,10 @@
 /**
- * @module MovimientoSobreAmortiguado
+ * @module MovimientoSobreamortiguado
  */
 import React from "react";
 import Head from "next/head";
 
-const MovimientoSobreAmortiguado = () => (
+const MovimientoSobreamortiguado = () => (
   <>
     <Head>
       <title>M.A.S</title>
@@ -16,4 +16,4 @@ const MovimientoSobreAmortiguado = () => (
   </>
 );
 
-export default MovimientoSobreAmortiguado;
+export default MovimientoSobreamortiguado;

@@ -19,28 +19,27 @@ export default function Home() {
               </a>
             </Link>
 
-            <Link href="/movimiento-sobre-amortiguado">
+            <Link href="/movimiento-subamortiguado">
               <a className="box h-full">
                 <h2 className="text-center flex items-center justify-center h-full text-xl">
-                  Movimiento Sobre Amortiguado
+                  Movimiento Subamortiguado
                 </h2>
               </a>
             </Link>
           </div>
 
           <div className="column">
+            <Link href="/movimiento-sobreamortiguado">
+              <a className="box h-full">
+                <h2 className="text-center flex items-center justify-center h-full text-xl">
+                  Movimiento Sobreamortiguado
+                </h2>
+              </a>
+            </Link>
             <Link href="/movimiento-criticamente-amortiguado">
               <a className="box h-full">
                 <h2 className="text-center flex items-center justify-center h-full text-xl">
                   Movimiento Críticamente Amortiguado
-                </h2>
-              </a>
-            </Link>
-
-            <Link href="/movimiento-sub-amortiguado">
-              <a className="box h-full">
-                <h2 className="text-center flex items-center justify-center h-full text-xl">
-                  Movimiento Sub Amortiguado
                 </h2>
               </a>
             </Link>
