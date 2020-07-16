@@ -1,10 +1,12 @@
 /**
- * @module  MovimientoSobreamortiguado
+ * @module  MovimientoAmortiguado
  */
 
 import React, { Component } from "react";
 import Head from "next/head";
 import ControlesAnimacion from "componentes/ControlesSimulacion";
+import ControlesVariables from "componentes/MovimientoAmortiguado/ControlesVariables";
+
 
 import { PI, PI2 } from "constantes";
 
@@ -43,6 +45,7 @@ const estadoInicial = {
   amplitud: 0,
   masa: 1,
   K: 1,
+  c: 1,
   faseInicial: 0,
   faseInicialInput: 0,
   unidadesFaseInicial: "grados",
@@ -63,7 +66,7 @@ const estadoInicial = {
   energiaMecanica: 0,
 };
 
-class MovimientoSobreamortiguado extends Component {
+class MovimientoAmortiguado extends Component {
   state = {
     ...estadoInicial,
   };
@@ -627,11 +630,11 @@ class MovimientoSobreamortiguado extends Component {
     return (
       <>
         <Head>
-          <title>M. Sobreamortiguado</title>
+          <title>M. Amortiguado</title>
         </Head>
 
         <div className="" style={{ width: "1000px" }}>
-          <h4 className="title is-4 text-center">Movimiento Sobreamortiguado</h4>
+          <h4 className="title is-4 text-center">Movimiento Amortiguado</h4>
 
           <div id="ventanagrafica">
             <canvas id="canvassecundario"></canvas>
@@ -651,7 +654,14 @@ class MovimientoSobreamortiguado extends Component {
           </div>
 
           <section className="section p-0">
-            <div className="container is-fluid is-paddingless">constroles variables</div>
+            <div className="container is-fluid is-paddingless">
+            <ControlesVariables
+                AMPLITUD_MAXIMA={AMPLITUD_MAXIMA}
+                AMPLITUD_MINIMA={AMPLITUD_MINIMA}
+                estado={this.state}
+                controlarSimulacion={this.controlarSimulacion}
+              />
+            </div>
           </section>
         </div>
       </>
@@ -659,4 +669,4 @@ class MovimientoSobreamortiguado extends Component {
   }
 }
 
-export default MovimientoSobreamortiguado;
+export default MovimientoAmortiguado;
