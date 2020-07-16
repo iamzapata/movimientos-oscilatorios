@@ -3,7 +3,6 @@ import React from "react";
 /**
  * Componente que despacha aciones para iniciar, pausar o parar la simulación.
  * 
- * @type {Componente}
  * 
  * @param {string} controlarSimulacion Función que se comunica con el canvas principal
  * @param {boolean} deshabilitarParar Estado habilitado/deshabilitado boton parar

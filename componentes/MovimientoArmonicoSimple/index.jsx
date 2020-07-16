@@ -17,21 +17,18 @@ import { PI, PI2 } from "constantes";
  *  Este es un valor abritrario para simular
  *  que una oscilación con omega en 6.28 dura un segundo.
  *
- * @type {constante}
  */
 const VALOR_INCREMEMENTO = 0.035;
 
 /**
  * Amplitud mínima de oscilación.
  *
- * @type {constante}
  */
 const AMPLITUD_MINIMA = -600;
 
 /**
  * Amplitud máxima de oscilación.
  *
- * @type {constante}
  */
 const AMPLITUD_MAXIMA = 600;
 
@@ -39,7 +36,6 @@ const AMPLITUD_MAXIMA = 600;
  * Este es el estado inicial que describe la simulación
  * en el instante t = 0.
  *
- * @type {estado}
  */
 const estadoInicial = {
   t: 0,
