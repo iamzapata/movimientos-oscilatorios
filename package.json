@@ -5,15 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "jsdoc": "jsdoc -c .jsdoc.json",
-    "jsdoc:view": "open public/documentacion/index.html"
+    "start": "next start"
   },
   "dependencies": {
     "bulma": "^0.8.2",
     "classnames": "^2.2.6",
     "font-awesome": "4.7",
-    "jsdoc": "^3.6.4",
     "katex": "^0.11.1",
     "next": "9.4.4",
     "normalize.css": "^8.0.1",
