@@ -12,7 +12,7 @@ const ControlesVariables = ({
     <div className="column">
       <div className="field is-vertical">
         <div className="field-label is-normal is-marginless text-center">
-          <label className="label">Amplitud</label>
+          <label className="label text-center">Amplitud</label>
         </div>
         <div className="field-body">
           <div className="field">
@@ -45,7 +45,7 @@ const ControlesVariables = ({
     <div className="column">
       <div className="field is-vertical">
         <div className="field-label is-normal is-marginless text-center">
-          <label className="label">m</label>
+          <label className="label text-center">m</label>
         </div>
         <div className="field-body">
           <div className="field">
@@ -64,7 +64,7 @@ const ControlesVariables = ({
     <div className="column">
       <div className="field is-vertical">
         <div className="field-label is-normal is-marginless text-center">
-          <label className="label">K</label>
+          <label className="label text-center">K</label>
         </div>
         <div className="field-body">
           <div className="field">
@@ -83,7 +83,7 @@ const ControlesVariables = ({
     <div className="column">
       <div className="field is-vertical">
         <div className="field-label is-normal is-marginless text-center">
-          <label className="label">Fase Inicial</label>
+          <label className="label text-center">Fase Inicial</label>
         </div>
         <div className="field-body">
           <div className="field flex">

@@ -690,7 +690,7 @@ class MovimientoArmonicoSimple extends Component {
     return (
       <>
         <Head>
-          <title>M.A.S</title>
+          <title>M. Armónico Simple</title>
         </Head>
 
         <div className="" style={{ width: "1000px" }}>
