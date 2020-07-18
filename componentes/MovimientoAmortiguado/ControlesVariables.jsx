@@ -4,7 +4,7 @@ const ControlesVariables = ({
   AMPLITUD_MAXIMA,
   AMPLITUD_MINIMA,
   controlarSimulacion,
-  estado: { amplitud, c, masa, K},
+  estado: { amplitud, b, masa, K},
 }) => (
   <div className="columns" style={{ marginBottom: "0" }}>
     <div className="column">
@@ -81,7 +81,7 @@ const ControlesVariables = ({
     <div className="column">
       <div className="field is-vertical">
         <div className="field-label is-normal is-marginless text-center">
-          <label className="label text-center">c</label>
+          <label className="label text-center">b</label>
         </div>
         <div className="field-body">
           <div className="field flex">
@@ -90,7 +90,7 @@ const ControlesVariables = ({
               type="number"
               name="coeficiente_viscocidad"
               placeholder="Coeficiente de Viscosidad"
-              value={c}
+              value={b}
               onChange={controlarSimulacion}
             />
           </div>
