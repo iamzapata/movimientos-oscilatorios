@@ -77,9 +77,6 @@ class MovimientoSobreamortiguado extends Component {
     this.canvasVectores = document.getElementById("canvasvectores");
     this.contextVectores = this.canvasVectores.getContext("2d");
 
-    this.canvasGraficas = document.getElementById("canvasgraficas");
-    this.contextGraficas = this.canvasGraficas.getContext("2d");
-
     this.establecerResolucionCanvas(this.canvasPrincipal);
     this.establecerResolucionCanvas(this.canvasSecundario);
     this.establecerResolucionCanvas(this.canvasVectores);
@@ -375,57 +372,6 @@ class MovimientoSobreamortiguado extends Component {
     contextPrincipal.stroke();
   };
 
-  dibujarGraficas = () => {
-    const { amplitud, masa, b, frecuenciaAngular } = this.state;
-    const { canvasGraficas: canvas } = this;
-    const { contextGraficas: context } = this;
-
-    const dpr = window.devicePixelRatio;
-
-    canvas.width = 500 * dpr;
-    canvas.height = 200 * dpr;
-
-    const { width: anchoCanvas, height: altoCanvas } = canvas;
-
-    canvas.style.width = `${anchoCanvas / dpr}px`;
-    canvas.style.height = `${altoCanvas / dpr}px`;
-
-    context.clearRect(0, 0, anchoCanvas, altoCanvas);
-
-    if (!amplitud) return;
-
-    // Plano cartesiano
-    context.save();
-    context.translate(50, canvas.height / 2);
-    context.beginPath();
-    context.strokeStyle = "lightgray";
-    context.moveTo(0, 0);
-    context.lineTo(0, 2000);
-    context.moveTo(0, 0);
-    context.lineTo(0, -2000);
-    context.moveTo(0, 0);
-    context.lineTo(-2000, 0);
-    context.moveTo(0, 0);
-    context.lineTo(2000, 0);
-    context.stroke();
-    context.restore();
-
-    context.save();
-    context.translate(50, canvas.height / 2);
-    context.strokeStyle = "lightgray";
-    context.moveTo(0, 0);
-
-    const exponente = -b / (2 * masa)
-
-    for (let x = 0; x < 200; x += 1) {
-      context.lineWidth = 3;
-      const posicion = 150 * Math.exp(exponente * x) * Math.cos(frecuenciaAngular * x);
-      context.lineTo(x, -posicion);
-      context.stroke();
-    }
-    context.restore();
-  };
-
   dibujarMasa = () => {
     const yInitial = 0;
     const { x, dimensionBloque } = this.state;
@@ -637,7 +583,6 @@ class MovimientoSobreamortiguado extends Component {
     this.limpiarTrayectoriaMasa();
     this.dibujarMasa();
     this.dibujarResorte();
-    this.dibujarGraficas();
     this.dibujarPuntoEquilibrio();
     this.dibujarAmplitudes();
     this.dibujarVectores();
@@ -669,9 +614,14 @@ class MovimientoSobreamortiguado extends Component {
     context.clearRect(5, altoCanvas / 2 - dimensionBloque - 10, anchoCanvas, dimensionBloque + 10);
   };
 
-  dibujarTipo = () => {
+  calcularTipoOscilacion = () => {
     const { b, masa, K } = this.state;
-    const calculo = Math.pow(b, 2) - 4 * K * masa;
+    return Math.pow(b, 2) - 4 * K * masa;
+  };
+
+  dibujarTipo = () => {
+    const { b } = this.state;
+    const calculo = this.calcularTipoOscilacion();
 
     if (calculo > 0) {
       return "Oscilador Sobreamortiguado";
@@ -684,8 +634,24 @@ class MovimientoSobreamortiguado extends Component {
     }
   };
 
+  dibujarGraficas = () => {
+    const { b } = this.state;
+    const calculo = this.calcularTipoOscilacion();
+    let src = "";
+
+    if (calculo > 0) {
+      src = "/sobreamortiguado.png";
+    } else if (calculo === 0) {
+      src = "/criticamente-amortiguado.png";
+    } else if (calculo < 0 && b !== 0) {
+      src = "/subamortiguado.png";
+    }
+
+    return <img className='h-64' src={src} />;
+  };
+
   render() {
-    const { velocidadAnimacion } = this.state;
+    const { velocidadAnimacion, b } = this.state;
 
     return (
       <>
@@ -722,7 +688,7 @@ class MovimientoSobreamortiguado extends Component {
 
           <section>
             <h3 className="text-xl">{this.dibujarTipo()}</h3>
-            <canvas id="canvasgraficas"></canvas>
+            {b > 0 && this.dibujarGraficas()}
           </section>
 
           <section className="section p-0">
