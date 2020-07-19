@@ -5,7 +5,6 @@ import VelocidadAnimacion from "componentes/VelocidadAnimacion";
 import ControlesAnimacion from "componentes/ControlesSimulacion";
 import Formulas from "componentes/MovimientoAmortiguado/Formulas";
 import ValoresCalculados from "componentes/MovimientoAmortiguado/ValoresCalculados";
-import memoize from 'lodash'
 
 import { PI2 } from "constantes";
 
@@ -380,7 +379,6 @@ class MovimientoSobreamortiguado extends Component {
     const { amplitud, masa, b, frecuenciaAngular } = this.state;
     const { canvasGraficas: canvas } = this;
     const { contextGraficas: context } = this;
-    const w = () => memoize(frecuenciaAngular)
 
     const dpr = window.devicePixelRatio;
 
@@ -417,11 +415,11 @@ class MovimientoSobreamortiguado extends Component {
     context.strokeStyle = "lightgray";
     context.moveTo(0, 0);
 
-    const exponente = () => memoize(-b / (2 * masa))
+    const exponente = -b / (2 * masa)
 
     for (let x = 0; x < 200; x += 1) {
       context.lineWidth = 3;
-      const posicion = 150 * Math.exp(exponente() * x) * Math.cos(w() * x);
+      const posicion = 150 * Math.exp(exponente * x) * Math.cos(frecuenciaAngular * x);
       context.lineTo(x, -posicion);
       context.stroke();
     }
