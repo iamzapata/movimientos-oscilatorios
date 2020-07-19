@@ -3,8 +3,11 @@ import Head from "next/head";
 import ControlesVariables from "componentes/MovimientoAmortiguado/ControlesVariables";
 import VelocidadAnimacion from "componentes/VelocidadAnimacion";
 import ControlesAnimacion from "componentes/ControlesSimulacion";
+import Formulas from "componentes/MovimientoAmortiguado/Formulas";
+import ValoresCalculados from "componentes/MovimientoAmortiguado/ValoresCalculados";
+import memoize from 'lodash'
 
-import { PI, PI2 } from "constantes";
+import { PI2 } from "constantes";
 
 /**
  *  Este es un valor abritrario para simular
@@ -56,6 +59,8 @@ const estadoInicial = {
   energiaPotencial: 0,
   energiaPotencialMax: 0,
   energiaMecanica: 0,
+  tipo: "",
+  lambda: null,
 };
 
 class MovimientoSobreamortiguado extends Component {
@@ -70,8 +75,15 @@ class MovimientoSobreamortiguado extends Component {
     this.canvasSecundario = document.getElementById("canvassecundario");
     this.contextSecundario = this.canvasSecundario.getContext("2d");
 
+    this.canvasVectores = document.getElementById("canvasvectores");
+    this.contextVectores = this.canvasVectores.getContext("2d");
+
+    this.canvasGraficas = document.getElementById("canvasgraficas");
+    this.contextGraficas = this.canvasGraficas.getContext("2d");
+
     this.establecerResolucionCanvas(this.canvasPrincipal);
     this.establecerResolucionCanvas(this.canvasSecundario);
+    this.establecerResolucionCanvas(this.canvasVectores);
 
     this.dibujarCanvas();
   }
@@ -122,7 +134,7 @@ class MovimientoSobreamortiguado extends Component {
         this.setState({ b: valor }, () => this.actualizarFrecuenciaAngular());
         break;
       case "K":
-        if (valor < 0) {
+        if (valor <= 0) {
           this.setState({ K: 0 });
           return;
         }
@@ -183,18 +195,14 @@ class MovimientoSobreamortiguado extends Component {
     const { t, amplitud, frecuenciaAngular, masa, b, dimensionBloque } = this.state;
     const exponente = -b / (2 * masa);
 
-    return (
-      amplitud * Math.pow(Math.E, exponente * t) * Math.cos(frecuenciaAngular * t) +
-      anchoCanvas / 2 -
-      dimensionBloque / 2
-    );
+    return amplitud * Math.exp(exponente * t) * Math.cos(frecuenciaAngular * t) + anchoCanvas / 2 - dimensionBloque / 2;
   };
 
   calcularPosicionReal = () => {
     const { t, frecuenciaAngular, amplitud, masa, b } = this.state;
     const exponente = -b / (2 * masa);
 
-    return amplitud * Math.pow(Math.E, exponente * t) * Math.cos(frecuenciaAngular * t);
+    return amplitud * Math.exp(exponente * t) * Math.cos(frecuenciaAngular * t);
   };
 
   calcularVelocidad = () => {
@@ -282,18 +290,6 @@ class MovimientoSobreamortiguado extends Component {
     this.limpiarAmplitudes();
   };
 
-  obtenerValorFaseInicial = (unidadesFaseInicial) => {
-    const { faseInicial } = this.state;
-
-    let valorFaseInicial = faseInicial;
-
-    if (unidadesFaseInicial === "grados") {
-      valorFaseInicial = faseInicial * (180 / PI);
-    }
-
-    return valorFaseInicial;
-  };
-
   actualizarFrecuenciaAngular = () => {
     const { masa, K, b } = this.state;
     const kSobreMasa = K / masa;
@@ -378,6 +374,58 @@ class MovimientoSobreamortiguado extends Component {
       }
     }
     contextPrincipal.stroke();
+  };
+
+  dibujarGraficas = () => {
+    const { amplitud, masa, b, frecuenciaAngular } = this.state;
+    const { canvasGraficas: canvas } = this;
+    const { contextGraficas: context } = this;
+    const w = () => memoize(frecuenciaAngular)
+
+    const dpr = window.devicePixelRatio;
+
+    canvas.width = 500 * dpr;
+    canvas.height = 200 * dpr;
+
+    const { width: anchoCanvas, height: altoCanvas } = canvas;
+
+    canvas.style.width = `${anchoCanvas / dpr}px`;
+    canvas.style.height = `${altoCanvas / dpr}px`;
+
+    context.clearRect(0, 0, anchoCanvas, altoCanvas);
+
+    if (!amplitud) return;
+
+    // Plano cartesiano
+    context.save();
+    context.translate(50, canvas.height / 2);
+    context.beginPath();
+    context.strokeStyle = "lightgray";
+    context.moveTo(0, 0);
+    context.lineTo(0, 2000);
+    context.moveTo(0, 0);
+    context.lineTo(0, -2000);
+    context.moveTo(0, 0);
+    context.lineTo(-2000, 0);
+    context.moveTo(0, 0);
+    context.lineTo(2000, 0);
+    context.stroke();
+    context.restore();
+
+    context.save();
+    context.translate(50, canvas.height / 2);
+    context.strokeStyle = "lightgray";
+    context.moveTo(0, 0);
+
+    const exponente = () => memoize(-b / (2 * masa))
+
+    for (let x = 0; x < 200; x += 1) {
+      context.lineWidth = 3;
+      const posicion = 150 * Math.exp(exponente() * x) * Math.cos(w() * x);
+      context.lineTo(x, -posicion);
+      context.stroke();
+    }
+    context.restore();
   };
 
   dibujarMasa = () => {
@@ -591,8 +639,10 @@ class MovimientoSobreamortiguado extends Component {
     this.limpiarTrayectoriaMasa();
     this.dibujarMasa();
     this.dibujarResorte();
+    this.dibujarGraficas();
     this.dibujarPuntoEquilibrio();
     this.dibujarAmplitudes();
+    this.dibujarVectores();
     this.actualizarValoresCalculados();
 
     contextPrincipal.restore();
@@ -610,16 +660,34 @@ class MovimientoSobreamortiguado extends Component {
     context.clearRect(0, 0, anchoCanvas, altoCanvas);
   };
 
+  limpiarVectores = () => {
+    const { width: anchoCanvas, height: altoCanvas, contextVectores: context } = this;
+    context.clearRect(0, 0, anchoCanvas, altoCanvas);
+  };
+
   limpiarTrayectoriaMasa = () => {
     const { dimensionBloque } = this.state;
     const { width: anchoCanvas, height: altoCanvas, contextPrincipal: context } = this;
     context.clearRect(5, altoCanvas / 2 - dimensionBloque - 10, anchoCanvas, dimensionBloque + 10);
   };
 
+  dibujarTipo = () => {
+    const { b, masa, K } = this.state;
+    const calculo = Math.pow(b, 2) - 4 * K * masa;
+
+    if (calculo > 0) {
+      return "Oscilador Sobreamortiguado";
+    } else if (calculo === 0) {
+      return "Oscilador Críticamente Amortiguado";
+    } else if (calculo < 0 && b !== 0) {
+      return "Osicaldor Subamortiguado";
+    } else {
+      return "Sin Amortiguamiento";
+    }
+  };
+
   render() {
     const { velocidadAnimacion } = this.state;
-    const valorGrados = this.obtenerValorFaseInicial("grados").toFixed(0);
-    const valorRadianes = this.obtenerValorFaseInicial("radianes").toFixed(2);
 
     return (
       <>
@@ -633,6 +701,7 @@ class MovimientoSobreamortiguado extends Component {
           <div id="ventanagrafica">
             <canvas id="canvassecundario"></canvas>
             <canvas id="canvasprincipal"></canvas>
+            <canvas id="canvasvectores"></canvas>
 
             <div className="columns">
               <div className="column">
@@ -653,8 +722,17 @@ class MovimientoSobreamortiguado extends Component {
             </div>
           </div>
 
+          <section>
+            <h3 className="text-xl">{this.dibujarTipo()}</h3>
+            <canvas id="canvasgraficas"></canvas>
+          </section>
+
           <section className="section p-0">
             <div className="container is-fluid is-paddingless">
+              <Formulas />
+
+              <ValoresCalculados estado={this.state} />
+
               <ControlesVariables
                 AMPLITUD_MAXIMA={AMPLITUD_MAXIMA}
                 AMPLITUD_MINIMA={AMPLITUD_MINIMA}
