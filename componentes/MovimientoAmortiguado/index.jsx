@@ -4,6 +4,7 @@ import ControlesVariables from "componentes/MovimientoAmortiguado/ControlesVaria
 import VelocidadAnimacion from "componentes/VelocidadAnimacion";
 import ControlesAnimacion from "componentes/ControlesSimulacion";
 import Formulas from "componentes/MovimientoAmortiguado/Formulas";
+import ValoresPredefinidos from "componentes/MovimientoAmortiguado/ValoresPredefinidos";
 import ValoresCalculados from "componentes/MovimientoAmortiguado/ValoresCalculados";
 
 import { PI2 } from "constantes";
@@ -100,7 +101,7 @@ class MovimientoSobreamortiguado extends Component {
   };
 
   controlarSimulacion = (evento) => {
-    const { velocidadAnimacion, faseInicialInput } = this.state;
+    const { velocidadAnimacion } = this.state;
     let { name, value } = evento.currentTarget;
 
     const valor = parseFloat(value);
@@ -136,11 +137,21 @@ class MovimientoSobreamortiguado extends Component {
         }
         this.setState({ K: valor }, () => this.actualizarFrecuenciaAngular());
         break;
-      case "fase_inicial":
-        this.actualizarFaseInicial(valor);
-        break;
-      case "unidades_fase_inicial":
-        this.setState({ unidadesFaseInicial: evento.target.value }, () => this.actualizarFaseInicial(faseInicialInput));
+      case "tipo_amortiguamiento":
+        switch (value) {
+          case "sin_amortiguamiento":
+            this.setState({ amplitud: 100, masa: 1, K: 1, b: 0 });
+            break;
+          case "subamortiguado":
+            this.setState({ amplitud: 100, masa: 1, K: 1, b: 1 });
+            break;
+          case "criticamente_amortiguado":
+            this.setState({ amplitud: 100, masa: 1, K: 1, b: 2 });
+            break;
+          case "sobreamortiguado":
+            this.setState({ amplitud: 100, masa: 1, K: 1, b: 3 });
+            break;
+        }
         break;
       case "iniciar":
         this.setState({ reproduccionEnCurso: true });
@@ -647,7 +658,7 @@ class MovimientoSobreamortiguado extends Component {
       src = "/subamortiguado.png";
     }
 
-    return <img className='h-64' src={src} />;
+    return <img className="h-56" src={src} />;
   };
 
   render() {
@@ -686,9 +697,15 @@ class MovimientoSobreamortiguado extends Component {
             </div>
           </div>
 
-          <section>
-            <h3 className="text-xl">{this.dibujarTipo()}</h3>
-            {b > 0 && this.dibujarGraficas()}
+          <section className="flex items-start justify-between">
+            <div>
+              <label className='label'>Tipo Oscilación</label>
+              <h3 className="text-xl">{this.dibujarTipo()}</h3>
+              {b > 0 && this.dibujarGraficas()}
+            </div>
+            <div>
+              <ValoresPredefinidos estado={this.state} controlarSimulacion={this.controlarSimulacion} />
+            </div>
           </section>
 
           <section className="section p-0">

@@ -16,6 +16,10 @@ body {
   font-family: "Source Sans Pro", sans-serif;
 }
 
+.select:not(.is-multiple) {
+  height: 100%;
+}
+
 .MovimientoArmonicoSimple,
 .MovimientoAmortiguado {
   align-items: center;

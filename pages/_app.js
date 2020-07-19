@@ -27,19 +27,15 @@ const AppFisica = ({ Component, pageProps, isProduction, NEXT_PUBLIC_ANALYTICS_I
       )}
     </Head>
     <Navbar />
-    <div className="container h-screen">
+    <div className="container">
       <Component {...pageProps} />
     </div>
-    <footer className="footer">
-      <div className="content has-text-centered">
-        <p>
-          <a href="https://github.com/iamzapata/movimientos-oscilatorios" target="_blank">
-            <span className="icon">
-              <i className="fa fa-github-square" aria-hidden="true" />
-            </span>
-          </a>
-        </p>
-      </div>
+    <footer className="footer flex items-center justify-center">
+      <a href="https://github.com/iamzapata/movimientos-oscilatorios" target="_blank">
+        <span className="icon">
+          <i className="fa fa-github-square" aria-hidden="true" />
+        </span>
+      </a>
     </footer>
   </>
 );
