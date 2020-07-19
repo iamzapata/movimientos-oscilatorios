@@ -51,7 +51,6 @@ const estadoInicial = {
   periodo: 0,
   posicion: 0,
   velocidad: 0,
-  aceleracion: 0,
   fuerza: 0,
   frecuenciaAngular: 1,
   energiaCinetica: 0,
@@ -213,9 +212,16 @@ class MovimientoSobreamortiguado extends Component {
   };
 
   calcularVelocidad = () => {
-    const { t, frecuenciaAngular, faseInicial, amplitud } = this.state;
+    const { t, b, frecuenciaAngular, masa, amplitud } = this.state;
 
-    return -amplitud * frecuenciaAngular * Math.sin(frecuenciaAngular * t + faseInicial);
+    const lambda = (-b * t) / (2 * masa);
+    const exponencial = Math.exp(lambda);
+    const seno = Math.sin(frecuenciaAngular * t);
+    const coseno = -b * Math.cos(frecuenciaAngular * t);
+    const numerador = 2 * masa * frecuenciaAngular * exponencial * (seno + coseno) * exponencial;
+    const denominador = 2 * masa;
+
+    return -amplitud * (numerador / denominador);
   };
 
   calcularAceleracion = () => {
@@ -237,7 +243,6 @@ class MovimientoSobreamortiguado extends Component {
 
     const posicion = this.calcularPosicionReal();
     const velocidad = this.calcularVelocidad();
-    const aceleracion = this.calcularAceleracion();
     const fuerza = this.calcularFuerza();
 
     const energiaCinetica = 0.5 * masa * Math.pow(velocidad, 2);
@@ -253,7 +258,6 @@ class MovimientoSobreamortiguado extends Component {
       periodo,
       posicion,
       velocidad,
-      aceleracion,
       fuerza,
       energiaCinetica,
       energiaCineticaMax,
@@ -499,41 +503,6 @@ class MovimientoSobreamortiguado extends Component {
     context.restore();
   };
 
-  dibujarVectorAceleracion = () => {
-    const { amplitud, dimensionBloque } = this.state;
-    const { width: anchoCanvas, contextVectores: context } = this;
-
-    if (amplitud === 0) return;
-
-    const posicionEnCanvas = this.calcularPosicionEnCanvas();
-
-    const posicionReal = this.calcularPosicionReal();
-    const VectorAceleracion = this.calcularAceleracion(posicionReal);
-    const posicionVectorAceleracionCola = posicionEnCanvas + dimensionBloque / 2;
-    const posicionVectorAceleracionCabeza = posicionVectorAceleracionCola + VectorAceleracion;
-
-    context.save();
-    context.lineWidth = 4;
-    context.strokeStyle = "blue";
-    context.beginPath();
-    context.moveTo(posicionVectorAceleracionCola, 60);
-    context.lineTo(posicionVectorAceleracionCabeza, 60);
-    context.stroke();
-    context.closePath();
-
-    context.fillStyle = "blue";
-    context.font = "42px serif";
-    context.fillText("a", anchoCanvas - 20, 60);
-
-    context.beginPath();
-    context.fillStyle = "blue";
-    context.moveTo(posicionVectorAceleracionCola + VectorAceleracion, 50);
-    context.lineTo(posicionVectorAceleracionCola + VectorAceleracion, 70);
-    context.lineTo(posicionVectorAceleracionCola + VectorAceleracion + Math.sign(VectorAceleracion) * 30, 60);
-    context.fill();
-    context.restore();
-  };
-
   dibujarVectorFuerza = () => {
     const { amplitud, dimensionBloque } = this.state;
     const { width: anchoCanvas, contextVectores: context } = this;
@@ -576,7 +545,6 @@ class MovimientoSobreamortiguado extends Component {
     if (amplitud === 0) return;
 
     this.dibujarVectorVelocidad();
-    this.dibujarVectorAceleracion();
     this.dibujarVectorFuerza();
   };
 
@@ -699,7 +667,7 @@ class MovimientoSobreamortiguado extends Component {
 
           <section className="flex items-start justify-between">
             <div>
-              <label className='label'>Tipo Oscilación</label>
+              <label className="label">Tipo Oscilación</label>
               <h3 className="text-xl">{this.dibujarTipo()}</h3>
               {b > 0 && this.dibujarGraficas()}
             </div>

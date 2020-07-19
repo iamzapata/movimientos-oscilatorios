@@ -8,7 +8,6 @@ const ValoresCalculados = ({
     periodo,
     posicion,
     velocidad,
-    aceleracion,
     fuerza,
     frecuenciaAngular,
     energiaCinetica,
@@ -51,11 +50,6 @@ const ValoresCalculados = ({
           <FormulaMatematica texto="m/s" className="inline-block" />
         </p>
         <p>
-          <FormulaMatematica texto="a(t)=" className="inline-block" />
-          <span className="has-text-grey">{formatearADosDecimales(aceleracion)}</span>
-          <FormulaMatematica texto="m/s^2" className="inline-block" />
-        </p>
-        <p>
           <FormulaMatematica texto="F=" className="inline-block" />
           <span className="has-text-grey">{formatearADosDecimales(fuerza)}</span>
           <FormulaMatematica texto="N" className="inline-block" />
@@ -71,11 +65,7 @@ const ValoresCalculados = ({
           <FormulaMatematica texto="E_m=" className="inline-block" />
           <span className="has-text-grey">{formatearADosDecimales(energiaMecanica)}</span>
           <FormulaMatematica texto="J" className="inline-block" />
-          <progress
-            className="progress is-primary rounded-none"
-            value={energiaMecanica}
-            max={energiaMecanica}
-          >
+          <progress className="progress is-primary rounded-none" value={energiaMecanica} max={energiaMecanica}>
             {energiaMecanica}
           </progress>
         </p>

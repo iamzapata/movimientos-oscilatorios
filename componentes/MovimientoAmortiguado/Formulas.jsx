@@ -6,11 +6,7 @@ const Formulas = () => (
     <div className="column">
       <FormulaMatematica texto="\boldsymbol{x(t)}= {A} {e^{\lambda {t}}} \ {cos}(\omega t + \phi)" className="mb-2 flex flex" />
       <FormulaMatematica
-        texto="\boldsymbol{v(t)}={\frac {dx}{dt}}=-\omega \lambda A\ {sen}(\omega t+\phi)"
-        className="mb-2 flex flex"
-      />
-      <FormulaMatematica
-        texto="\boldsymbol{a(t)}={\frac {dv(t)}{dt}}=-\omega ^{2} \lambda ^{2} A\,\cos(\omega t+\phi )"
+        texto="\boldsymbol{v(t)}=-\omega \lambda A\ {sen}(\omega t+\phi)"
         className="mb-2 flex flex"
       />
       <div className="columns mt-2">
@@ -28,7 +24,7 @@ const Formulas = () => (
         <div className="column flex flex-col justify-center">
         <FormulaMatematica texto="\boldsymbol{\lambda}=\frac {-b}{2m}" className="mb-2 flex" />
           <FormulaMatematica texto="\boldsymbol{f}=\frac {\omega }{2\pi}" className="mb-2 flex" />
-          <FormulaMatematica texto="\boldsymbol{F}= -Kx·bv" className="mb-2 flex" />
+          <FormulaMatematica texto="\boldsymbol{F}= -Kx -bv" className="mb-2 flex" />
         </div>
         <div className="column flex flex-col justify-center">
           <FormulaMatematica texto="\boldsymbol{T}=\frac{1}{f}=\frac {2\pi}{\omega}" className="mb-2 flex" />
