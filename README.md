@@ -103,7 +103,7 @@ Se puede comenzar a editar los archivos del proyecto. La aplicación se actualiz
    |   |-- TextoAyuda.jsx
    |   |-- ValoresCalculados.jsx
    |   |-- index.jsx
-   │   ├── <a href="#movimientoamortiguado" title="MovimientoAmortiguado">MovimientoAmortiguado</a>
+   |-- <a href="#movimientoamortiguado" title="MovimientoAmortiguado">MovimientoAmortiguado</a>
    │   │   ├── ControlesVariables.jsx
    │   │   ├── Formulas.jsx
    │   │   ├── ValoresCalculados.jsx
