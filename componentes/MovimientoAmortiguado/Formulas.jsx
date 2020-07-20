@@ -5,10 +5,6 @@ const Formulas = () => (
   <div className="columns Formulas mt-5" style={{marginBottom: '0'}}>
     <div className="column">
       <FormulaMatematica texto="\boldsymbol{x(t)}= {A} {e^{\lambda {t}}} \ {cos}(\omega t + \phi)" className="mb-2 flex flex" />
-      <FormulaMatematica
-        texto="\boldsymbol{v(t)}=-\omega \lambda A\ {sen}(\omega t+\phi)"
-        className="mb-2 flex flex"
-      />
       <div className="columns mt-2">
         <div className="column mb-2">
           <FormulaMatematica texto="\boldsymbol{E_{p}}={\frac {1}{2}}kx^{2}" className="mb-2 flex" />

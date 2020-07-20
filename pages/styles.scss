@@ -16,6 +16,10 @@ body {
   font-family: "Source Sans Pro", sans-serif;
 }
 
+.progress {
+  border-radius: 0;
+}
+
 .select:not(.is-multiple) {
   height: 100%;
 }

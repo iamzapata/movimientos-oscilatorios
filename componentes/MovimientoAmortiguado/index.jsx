@@ -41,9 +41,6 @@ const estadoInicial = {
   masa: 1,
   K: 1,
   b: 0,
-  faseInicial: 0,
-  faseInicialInput: 0,
-  unidadesFaseInicial: "grados",
   reproduccionEnCurso: false,
   incremento: VALOR_INCREMEMENTO,
 
@@ -208,35 +205,31 @@ class MovimientoSobreamortiguado extends Component {
     const { t, frecuenciaAngular, amplitud, masa, b } = this.state;
     const exponente = -b / (2 * masa);
 
-    return amplitud * Math.exp(exponente * t) * Math.cos(frecuenciaAngular * t);
+    const posicion = amplitud * Math.exp(exponente * t) * Math.cos(frecuenciaAngular * t);
+
+    return parseFloat(posicion.toFixed(1));
   };
 
   calcularVelocidad = () => {
     const { t, b, frecuenciaAngular, masa, amplitud } = this.state;
 
-    const lambda = (-b * t) / (2 * masa);
-    const exponencial = Math.exp(lambda);
+    const lambda = b / masa;
     const seno = Math.sin(frecuenciaAngular * t);
-    const coseno = -b * Math.cos(frecuenciaAngular * t);
-    const numerador = 2 * masa * frecuenciaAngular * exponencial * (seno + coseno) * exponencial;
-    const denominador = 2 * masa;
+    const coseno = Math.cos(frecuenciaAngular * t);
 
-    return -amplitud * (numerador / denominador);
-  };
+    const velocidad = -amplitud * Math.exp(-(lambda / 2) * t) * (frecuenciaAngular * seno + (lambda / 2) * coseno);
 
-  calcularAceleracion = () => {
-    const { frecuenciaAngular, amplitud, t, faseInicial } = this.state;
-
-    return -amplitud * Math.pow(frecuenciaAngular, 2) * Math.cos(frecuenciaAngular * t + faseInicial);
+    return parseFloat(velocidad.toFixed(1));
   };
 
   calcularFuerza = () => {
-    const { K } = this.state;
-    return -K * this.calcularPosicionReal();
+    const { K, b } = this.state;
+    const fuerza = -K * this.calcularPosicionReal() - b * this.calcularVelocidad();
+    return parseFloat(fuerza.toFixed(1));
   };
 
   actualizarValoresCalculados = () => {
-    const { frecuenciaAngular, amplitud, masa, K } = this.state;
+    const { frecuenciaAngular, amplitud, b, masa, K, t } = this.state;
 
     const frecuencia = frecuenciaAngular / PI2;
     const periodo = 1 / frecuencia;
@@ -245,25 +238,37 @@ class MovimientoSobreamortiguado extends Component {
     const velocidad = this.calcularVelocidad();
     const fuerza = this.calcularFuerza();
 
-    const energiaCinetica = 0.5 * masa * Math.pow(velocidad, 2);
-    const energiaCineticaMax = 0.5 * masa * Math.pow(frecuenciaAngular, 2) * Math.pow(amplitud, 2);
+    const energiaPotencial =
+      0.5 *
+      K *
+      Math.pow(amplitud, 2) *
+      Math.exp(-(b / masa) * t) *
+      (Math.cos(frecuenciaAngular * t) * Math.cos(frecuenciaAngular * t));
 
-    const energiaPotencial = 0.5 * K * Math.pow(posicion, 2);
-    const energiaPotencialMax = 0.5 * K * Math.pow(amplitud, 2);
+    const energiaPotencialMax = 0.5 * K * Math.pow(amplitud, 2) * Math.exp(0) * (Math.cos(0) * Math.cos(0));
+
+    const energiaCinetica =
+      0.5 *
+      K *
+      Math.pow(amplitud, 2) *
+      Math.exp(-(b / masa) * t) *
+      (Math.sin(frecuenciaAngular * t) * Math.sin(frecuenciaAngular * t));
+
+    const energiaCineticaMax = energiaPotencialMax;
 
     const energiaMecanica = energiaCinetica + energiaPotencial;
 
     this.setState({
-      frecuencia,
       periodo,
+      frecuencia,
       posicion,
       velocidad,
       fuerza,
-      energiaCinetica,
-      energiaCineticaMax,
-      energiaPotencial,
-      energiaPotencialMax,
-      energiaMecanica,
+      energiaCinetica: parseFloat(energiaCinetica.toFixed(1)),
+      energiaCineticaMax: parseFloat(energiaCineticaMax.toFixed(1)),
+      energiaPotencial: parseFloat(energiaPotencial.toFixed(1)),
+      energiaPotencialMax: parseFloat(energiaPotencialMax.toFixed(1)),
+      energiaMecanica: parseFloat(energiaMecanica.toFixed(1)),
     });
   };
 
