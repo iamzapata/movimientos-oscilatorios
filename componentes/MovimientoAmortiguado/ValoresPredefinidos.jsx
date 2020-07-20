@@ -1,8 +1,8 @@
 import React from "react";
 
-const ValoresPredefinidos = ({ estado, controlarSimulacion }) => (
+const ValoresPredefinidos = ({ controlarSimulacion }) => (
   <div className="ValoresPredefinidos">
-    <label htmlFor="id" className="label">Estados Predeterminados</label>
+    <label htmlFor="id" className="label text-right">Estados Predeterminados</label>
     <select
       className="select text-xl"
       name="tipo_amortiguamiento"
@@ -10,9 +10,9 @@ const ValoresPredefinidos = ({ estado, controlarSimulacion }) => (
       onChange={controlarSimulacion}
     >
       <option value="sin_amortiguamiento">Sin Amortiguamiento</option>
-      <option value="subamortiguado">Subamortiguado</option>
-      <option value="criticamente_amortiguado">Criticamente Amortiguado</option>
-      <option value="sobreamortiguado">Sobreamortiguado</option>
+      <option value="subamortiguado">Sobreamortiguamiento</option>
+      <option value="criticamente_amortiguado">Amortiguamiento Crítico</option>
+      <option value="sobreamortiguado">Sobreamortiguamiento</option>
     </select>
   </div>
 );

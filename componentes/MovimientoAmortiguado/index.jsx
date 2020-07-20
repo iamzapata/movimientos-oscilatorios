@@ -4,6 +4,7 @@ import ControlesVariables from "componentes/MovimientoAmortiguado/ControlesVaria
 import VelocidadAnimacion from "componentes/VelocidadAnimacion";
 import ControlesAnimacion from "componentes/ControlesSimulacion";
 import Formulas from "componentes/MovimientoAmortiguado/Formulas";
+import FormulaMatematica from "componentes/FormulaMatematica";
 import ValoresPredefinidos from "componentes/MovimientoAmortiguado/ValoresPredefinidos";
 import ValoresCalculados from "componentes/MovimientoAmortiguado/ValoresCalculados";
 
@@ -136,15 +137,19 @@ class MovimientoSobreamortiguado extends Component {
       case "tipo_amortiguamiento":
         switch (value) {
           case "sin_amortiguamiento":
+            this.reestablecerValores();
             this.setState({ amplitud: 100, masa: 1, K: 1, b: 0 });
             break;
           case "subamortiguado":
+            this.reestablecerValores();
             this.setState({ amplitud: 100, masa: 1, K: 1, b: 1 });
             break;
           case "criticamente_amortiguado":
+            this.reestablecerValores();
             this.setState({ amplitud: 100, masa: 1, K: 1, b: 2 });
             break;
           case "sobreamortiguado":
+            this.reestablecerValores();
             this.setState({ amplitud: 100, masa: 1, K: 1, b: 3 });
             break;
         }
@@ -618,6 +623,19 @@ class MovimientoSobreamortiguado extends Component {
     }
   };
 
+  dibujarComparaciónTipoOscilacion = () => {
+    const { b } = this.state;
+    const calculo = this.calcularTipoOscilacion();
+
+    if (calculo > 0) {
+      return <FormulaMatematica texto="\lambda^2-\omega^2>0" className="ml-10 has-text-danger text-xl" />;
+    } else if (calculo === 0) {
+      return <FormulaMatematica texto="\lambda^2-\omega^2=0" className="ml-10 has-text-danger text-xl" />;
+    } else if (calculo < 0 && b !== 0) {
+      return <FormulaMatematica texto="\lambda^2-\omega^2<0" className="ml-10 has-text-danger text-xl" />;
+    }
+  };
+
   dibujarGraficas = () => {
     const { b } = this.state;
     const calculo = this.calcularTipoOscilacion();
@@ -674,7 +692,10 @@ class MovimientoSobreamortiguado extends Component {
             <div>
               <label className="label">Tipo Oscilación</label>
               <h3 className="text-xl">{this.dibujarTipo()}</h3>
-              {b > 0 && this.dibujarGraficas()}
+              <span className="flex items-center">
+                {b > 0 && this.dibujarGraficas()}
+                {this.dibujarComparaciónTipoOscilacion()}
+              </span>
             </div>
             <div>
               <ValoresPredefinidos estado={this.state} controlarSimulacion={this.controlarSimulacion} />

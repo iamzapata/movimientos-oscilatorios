@@ -2,9 +2,12 @@ import React from "react";
 import FormulaMatematica from "componentes/FormulaMatematica";
 
 const Formulas = () => (
-  <div className="columns Formulas mt-5" style={{marginBottom: '0'}}>
+  <div className="columns Formulas mt-5" style={{ marginBottom: "0" }}>
     <div className="column">
-      <FormulaMatematica texto="\boldsymbol{x(t)}= {A} {e^{\lambda {t}}} \ {cos}(\omega t + \phi)" className="mb-2 flex flex" />
+      <FormulaMatematica
+        texto="\boldsymbol{x(t)}= {A} {e^{\lambda {t}}} \ {cos}(\omega t + \phi)"
+        className="mb-2 flex flex"
+      />
       <div className="columns mt-2">
         <div className="column mb-2">
           <FormulaMatematica texto="\boldsymbol{E_{p}}={\frac {1}{2}}kx^{2}" className="mb-2 flex" />
@@ -18,13 +21,16 @@ const Formulas = () => (
     <div className="column">
       <div className="columns">
         <div className="column flex flex-col justify-center">
-        <FormulaMatematica texto="\boldsymbol{\lambda}=\frac {-b}{2m}" className="mb-2 flex" />
+          <FormulaMatematica texto="\boldsymbol{\lambda}=\frac {-b}{2m}" className="mb-2 flex" />
           <FormulaMatematica texto="\boldsymbol{f}=\frac {\omega }{2\pi}" className="mb-2 flex" />
           <FormulaMatematica texto="\boldsymbol{F}= -Kx -bv" className="mb-2 flex" />
         </div>
         <div className="column flex flex-col justify-center">
           <FormulaMatematica texto="\boldsymbol{T}=\frac{1}{f}=\frac {2\pi}{\omega}" className="mb-2 flex" />
-          <FormulaMatematica texto="\boldsymbol\omega={\sqrt {{\frac{K}{m}} - {\frac{-b^2}{4m^2}}} }" className="mb-2 flex" />
+          <FormulaMatematica
+            texto="\boldsymbol\omega={\sqrt {{\frac{K}{m}} - {\frac{-b^2}{4m^2}}} }"
+            className="mb-2 flex"
+          />
         </div>
       </div>
     </div>
