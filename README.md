@@ -103,8 +103,12 @@ Se puede comenzar a editar los archivos del proyecto. La aplicación se actualiz
    |   |-- TextoAyuda.jsx
    |   |-- ValoresCalculados.jsx
    |   |-- index.jsx
-   |-- <a href="#movimientosobreamortiguado" title="MovimientoSobreAmortiguado">MovimientoSobreAmortiguado</a>
-   |   |-- index.jsx
+   |-- <a href="#movimientoamortiguado" title="MovimientoAmortiguado">MovimientoAmortiguado</a>
+   |   |-- ControlesVariables.jsx
+   |   |-- Formulas.jsx
+   |   |-- ValoresCalculados.jsx
+   |   |-- ValoresPredefinidos.jsx
+   |   |-- index.jsx   
 <a href="#constantes" title="constantes">constantes</a>
    |-- index.js
 <a href="#imagenes" title="imagenes">imagenes</a>
@@ -155,15 +159,26 @@ Contiene el componente que describe como se debe ver la barra de navegación. Po
 
 #### MovimientoArmonicoSimple
 ```bash
- |-- MovimientoArmonicoSimple
- |   |-- ControlesVariables.jsx
- |   |-- Formulas.jsx
- |   |-- TextoAyuda.jsx
- |   |-- ValoresCalculados.jsx
- |   |-- index.jsx
+├── MovimientoArmonicoSimple
+    ├── ControlesVariables.jsx 
+    ├── Formulas.jsx
+    ├── TextoAyuda.jsx
+    ├── ValoresCalculados.jsx
+    └── index.jsx
 ```
 
-#### MovimientoSobreAmortiguado
+#### MovimientoAmortiguado
+```bash
+├── MovimientoAmortiguado
+    ├── ControlesVariables.jsx
+    ├── Formulas.jsx
+    ├── ValoresCalculados.jsx
+    ├── ValoresPredefinidos.jsx
+    └── index.jsx
+```
+
+#### MovimientoAmortiguado
+#### MovimientoAmortiguado
 
 ### 📁constantes
 Contiene las constantes que se usan a largo de la simulación.
