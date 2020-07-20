@@ -10,10 +10,4 @@ const PI = Math.PI;
  */
 const PI2 = Math.PI * 2;
 
-/**
- * Constante euler
- * 
- */
-const E = Math.E
-
-export { PI, PI2, E };
+export { PI, PI2 };

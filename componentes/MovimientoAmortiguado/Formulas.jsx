@@ -5,7 +5,7 @@ const Formulas = () => (
   <div className="columns Formulas mt-5" style={{ marginBottom: "0" }}>
     <div className="column">
       <FormulaMatematica
-        texto="\boldsymbol{x(t)}= {A} {e^{\lambda {t}}} \ {cos}(\omega t + \phi)"
+        texto="\boldsymbol{x(t)}= {A} {e^{\lambda {t}}} \ {cos}(\omega t)"
         className="mb-2 flex flex"
       />
       <div className="columns mt-2">
