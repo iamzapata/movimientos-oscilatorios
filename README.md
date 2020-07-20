@@ -166,6 +166,20 @@ Contiene el componente que describe como se debe ver la barra de navegación. Po
     ├── ValoresCalculados.jsx
     └── index.jsx
 ```
+#### ControlesVariables
+Contiene los inputs de amplitud, masa, constante del resorte y fase incial.
+
+#### Fórmulas
+Contiene las formulas que aplican para el movimiento armónico simple.
+
+#### TextoAyuda
+Contiene texto sobre el uso de '.' en vez de ',' como separador decimal.
+
+#### ValoresCalculados
+Contiene los valores en tiempo real de tiempo, frecuencia, periodo, posición, velocidad, aceleración, fuerza, frecuencia angular y energía.
+
+#### index.jxx
+Este archivo contiene toda la lógica para mostrar los valores y actualizar la animiación. Es el corazón de la simulación.
 
 #### MovimientoAmortiguado
 ```bash
@@ -177,8 +191,20 @@ Contiene el componente que describe como se debe ver la barra de navegación. Po
     └── index.jsx
 ```
 
-#### MovimientoAmortiguado
-#### MovimientoAmortiguado
+#### ControlesVariables
+Contiene los inputs de amplitud, masa, constante del resorte y constante de viscocidad.
+
+#### Fórmulas
+Contiene las formulas que aplican para el movimiento amortiguado.
+
+#### ValoresCalculados
+Contiene los valores en tiempo real de tiempo, frecuencia, periodo, posición, velocidad, fuerza, frecuencia angular y energía.
+
+#### ValoresPredefinidos
+Contiene valores predefinidos de amplitud, masa, constante del resorte y constante de viscocidad para cargar los diferentes tipos de amortiguaciones.
+
+#### index.jxx
+Este archivo contiene toda la lógica para mostrar los valores y actualizar la animiación.
 
 ### 📁constantes
 Contiene las constantes que se usan a largo de la simulación.
@@ -223,7 +249,7 @@ En este directorio se declaran las rutas que tiene la aplicación web. Si se cre
 |-- index.js
 |-- movimiento-armonico-simple
 |   |-- index.jsx
-|-- movimiento-sobre-amortiguado
+|-- movimiento--amortiguado
 |   |-- index.jsx
 |-- styles.scss
 ```
@@ -244,7 +270,7 @@ Contiene la declaración de los components que permite que el usuario pueda visi
 #### movimiento-armonico-simple
 Es la ruta declarada para el simulador de movimiento armónico simple. Con esto el usuario puede visitar https://fisica.app/movimiento-armonico-simple. 
 
-#### movimiento-sobre-amortiguado
+#### movimiento-amortiguado
 Aplica lo mismo dicho arriba.
 
 #### styles.scss
