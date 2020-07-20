@@ -104,11 +104,11 @@ Se puede comenzar a editar los archivos del proyecto. La aplicación se actualiz
    |   |-- ValoresCalculados.jsx
    |   |-- index.jsx
    |-- <a href="#movimientoamortiguado" title="MovimientoAmortiguado">MovimientoAmortiguado</a>
-   │   │   ├── ControlesVariables.jsx
-   │   │   ├── Formulas.jsx
-   │   │   ├── ValoresCalculados.jsx
-   │   │   ├── ValoresPredefinidos.jsx
-   │   │   └── index.jsx   
+   |   |-- ControlesVariables.jsx
+   |   |-- Formulas.jsx
+   |   |-- ValoresCalculados.jsx
+   |   |-- ValoresPredefinidos.jsx
+   |   |-- index.jsx   
 <a href="#constantes" title="constantes">constantes</a>
    |-- index.js
 <a href="#imagenes" title="imagenes">imagenes</a>
