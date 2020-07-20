@@ -10,7 +10,7 @@ const ValoresPredefinidos = ({ controlarSimulacion }) => (
       onChange={controlarSimulacion}
     >
       <option value="sin_amortiguamiento">Sin Amortiguamiento</option>
-      <option value="subamortiguado">Sobreamortiguamiento</option>
+      <option value="subamortiguado">Subamortiguamiento</option>
       <option value="criticamente_amortiguado">Amortiguamiento Crítico</option>
       <option value="sobreamortiguado">Sobreamortiguamiento</option>
     </select>
