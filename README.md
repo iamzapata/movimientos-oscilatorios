@@ -159,15 +159,26 @@ Contiene el componente que describe como se debe ver la barra de navegación. Po
 
 #### MovimientoArmonicoSimple
 ```bash
- |-- MovimientoArmonicoSimple
- |   |-- ControlesVariables.jsx
- |   |-- Formulas.jsx
- |   |-- TextoAyuda.jsx
- |   |-- ValoresCalculados.jsx
- |   |-- index.jsx
+├── MovimientoArmonicoSimple
+    ├── ControlesVariables.jsx 
+    ├── Formulas.jsx
+    ├── TextoAyuda.jsx
+    ├── ValoresCalculados.jsx
+    └── index.jsx
 ```
 
-#### MovimientoSobreAmortiguado
+#### MovimientoAmortiguado
+```bash
+├── MovimientoAmortiguado
+    ├── ControlesVariables.jsx
+    ├── Formulas.jsx
+    ├── ValoresCalculados.jsx
+    ├── ValoresPredefinidos.jsx
+    └── index.jsx
+```
+
+#### MovimientoAmortiguado
+#### MovimientoAmortiguado
 
 ### 📁constantes
 Contiene las constantes que se usan a largo de la simulación.
