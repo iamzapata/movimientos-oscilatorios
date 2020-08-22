@@ -38,8 +38,6 @@
 * [Roadmap](#roadmap)
 * [Contribuir](#contribuir)
 * [Aprender Más](#aprender-mas)
-* [Licencia](#licencia)
-* [Contacto](#contacto)
 
 ## Acerca del Proyecto
 Este proyecto intenta facilitar el aprendizaje de algunos temas de la física ondulatoria. Con el se espera que los estudiantes del curso tengan una herramienta útil para complementar sus estudios.
@@ -292,10 +290,6 @@ Ruta de posibles y futuras funcionalidades
 
 ## Aprender Más
 Para aprender más acerca de desarrollo web y las tecnologías usadas en este proyecto, visitar los siguientes enlaces: 
-
-## Licencia
-
-## Contacto
 
 <!-- ENLACES / IMAGENES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
